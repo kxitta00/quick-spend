@@ -4,8 +4,8 @@
 แอปบันทึกรายรับ–รายจ่ายส่วนบุคคล ชื่อ Quick-Spend
 
 ### เป้าหมาย
-ฝึกสร้างเว็บแอปด้วย HTML, CSS และ TypeScript แบบ vanilla
-พร้อมจัดการข้อมูลบน browser ด้วย localStorage
+ฝึกสร้างเว็บแอปด้วย HTML, CSS และ TypeScript แบบ vanilla พร้อมจัดการข้อมูลบน browser ด้วย localStorage และเป็นโปรเจ็คสุดท้ายที่ทำแบบ vanilla ก่อนก้าวไปฝึกใช้ Framework React + Tailwind CSS เพื่อพัฒนาฝีมือ Web dev ต่อไป
+
 
 ## ผู้ใช้และปัญหาที่แก้
 ### ผู้ใช้หรือตัวผมเอง

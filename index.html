@@ -5,11 +5,99 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>expense-trackerV1</title>
+  <title>QuickSpend</title>
 </head>
 
 <body>
-  <h1>test</h1>
+  <header>
+    <h1 class="header-title">ภาพรวม</h1>
+    <time class="header-date" id="current-date">พุธ 21 ต.ค. 2569</time>
+  </header>
+  <main>
+    <!-- PAGE1 -->
+    <section id="view-overview">
+      <!-- HERO CARD -->
+      <div class="card card-hero">
+        <span class="hero-title">ยอดเงินคงเหลือ</span>
+        <h2 class="hero-amount" id="balance-amount">฿18,260.00</h2>
+        <p class="hero-sub" id="balance-subtitle">รายรับ ฿32,000 - รายจ่าย฿13,740</p>
+      </div>
+      <!-- ROW CARD -->
+      <div class="card-row">
+        <!-- Monthly CARD -->
+        <div class="card">
+          <div class="budget">
+            <span class="budget-title">ใช้ไปเดือนนี้</span>
+            <span class="budget-percent" id="budget-percent">62%</span>
+          </div>
+          <div class="budget-amount">
+            <span class="budget-spend" id="monthly-expense-amount">฿7,420</span>
+            <span class="budget-monthly" id="monthly-budget-amount">/฿12,000</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar" id="budget-progress-fill">หลอด Progress bar</div>
+          </div>
+          <span class="remaining-text" id="budget-remaining">฿4,580</span>
+        </div>
+        <!-- Today CARD -->
+        <div class="card">
+          <span class="today-amount-title">ใช้จ่ายวันนี้</span>
+          <span class="today-amount" id="today-expense-amount">-฿189.00</span>
+          <span class="today-count" id="today-transaction-count">3 รายการ</span>
+        </div>
+      </div>
+      <!--Form -->
+      <form id="quick-add-form" class="card quick-add-card">
+        <!--BTN-Toggle -->
+        <div class="type-toggle">
+          <button type="button" class="toggle-btn active" id="btn-type-expense">รายจ่าย</button>
+          <button type="button" class="toggle-btn" id="btn-type-income">รายรับ</button>
+        </div>
+        <input class="amount-input" id="amount-input" type="text" placeholder="฿ 0.00">
+        <!--Grid-Card-Category -->
+        <div class="category-grid">
+          <button type="button" class="category-btn" data-category="food"><i data-lucide="utensils"></i><span
+              class="category-title">อาหาร</span></button>
+          <button type="button" class="category-btn" data-category="transport"><i data-lucide="car"></i><span
+              class="category-title">เดินทาง</span></button>
+          <button type="button" class="category-btn" data-category="shopping"><i data-lucide="shopping-bag"></i><span
+              class="category-title">ช้อปปิ้ง</span></button>
+          <button type="button" class="category-btn" data-category="entertainment"><i data-lucide="film"></i><span
+              class="category-title">บันเทิง</span></button>
+          <button type="button" class="category-btn" data-category="bill"><i data-lucide="receipt"></i><span
+              class="category-title">บิล</span></button>
+          <button type="button" class="category-btn" data-category="other"><i data-lucide="more-horizontal"></i><span
+              class="category-title">อื่นๆ</span></button>
+        </div>
+        <!-- Note -->
+        <input class="note-input" id="note-input" type="text" placeholder="โน้ต เช่น กาแฟ">
+        <!-- Save -->
+        <button type="submit" class="submit-btn" id="submit-btn">+ บันทึกรายการ</button>
+        <!-- Time -->
+        <time class="timestamp-hint" id="form-timestamp"></time>
+      </form>
+    </section>
+    <section id="view-transactions"></section>
+    <section id="view-reports"></section>
+    <section id="view-settings"></section>
+  </main>
+  <!-- NAV-BAR -->
+  <nav class="bottom-nav">
+    <button class="nav-item active">
+      <i data-lucide="house"></i><span class="nav-title overview">ภาพรวม</span>
+    </button>
+    <button class="nav-item">
+      <i data-lucide="list"></i><span class="nav-title list">รายการ</span>
+    </button>
+    <button class="nav-item">
+      <i data-lucide="bar-chart-2"></i><span class="nav-title report">รายงาน</span>
+    </button>
+    <button class="nav-item">
+      <i data-lucide="settings-2"></i><span class="nav-title setting">ตั้งค่า</span>
+    </button>
+  </nav>
+
+
   <script type="module" src="/src/main.ts"></script>
 </body>
 
