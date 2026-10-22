@@ -6,6 +6,11 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QuickSpend</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -35,9 +40,9 @@
             <span class="budget-monthly" id="monthly-budget-amount">/฿12,000</span>
           </div>
           <div class="progress-track">
-            <div class="progress-bar" id="budget-progress-fill">หลอด Progress bar</div>
+            <div class="progress-bar" id="budget-progress-fill"></div>
           </div>
-          <span class="remaining-text" id="budget-remaining">฿4,580</span>
+          <span class="remaining-text" id="budget-remaining">เหลือ ฿4,580</span>
         </div>
         <!-- Today CARD -->
         <div class="card">
@@ -47,16 +52,19 @@
         </div>
       </div>
       <!--Form -->
-      <form id="quick-add-form" class="card quick-add-card">
+      <form class="card quick-add-card" id="quick-add-form">
         <!--BTN-Toggle -->
         <div class="type-toggle">
           <button type="button" class="toggle-btn active" id="btn-type-expense">รายจ่าย</button>
           <button type="button" class="toggle-btn" id="btn-type-income">รายรับ</button>
         </div>
-        <input class="amount-input" id="amount-input" type="text" placeholder="฿ 0.00">
+        <div class="amount-input-group">
+          <span class="currency-symbol">฿</span>
+          <input class="amount-input" id="amount-input" type="number" placeholder="0.00">
+        </div>
         <!--Grid-Card-Category -->
         <div class="category-grid">
-          <button type="button" class="category-btn" data-category="food"><i data-lucide="utensils"></i><span
+          <button type="button" class="category-btn active" data-category="food"><i data-lucide="utensils"></i><span
               class="category-title">อาหาร</span></button>
           <button type="button" class="category-btn" data-category="transport"><i data-lucide="car"></i><span
               class="category-title">เดินทาง</span></button>
