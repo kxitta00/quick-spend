@@ -22,3 +22,14 @@ export type Settings = {
   monthlyBudget: number;
   theme: 'light' | 'dark'
 }
+
+/** type สรุปยอดและรายการเงินต่างๆ */
+export type ReportTransactions = {
+  totalBalance: number,
+  totalIncome: number,
+  totalExpense: number,
+  totalMonthlyExpense: number,
+  totalMonthlyIncome: number,
+  totalTodayExpense: number,
+  totalTodayCount: number
+}

@@ -38,6 +38,19 @@ export function calculateMonthlyExpense(transactions: Transaction[]): number {
   }, 0)
 }
 
+//ฟังก์ชัน ผลรวมเฉพาะรายรับเดือนปัจจุบัน
+export function calculateMonthlyIncome(transactions: Transaction[]): number {
+  const now = new Date();
+
+  return transactions.reduce((acc, curr) => {
+    const itemDate = new Date(curr.createdAt);
+    if (itemDate.getMonth() === now.getMonth() && itemDate.getFullYear() === now.getFullYear()) {
+      if (curr.type === 'income') { return acc + curr.amount };
+    }
+    return acc
+  }, 0)
+}
+
 //ฟังก์ชัน ผลรวมเฉพาะรายจ่ายวันนี้
 export function calculateTodayExpense(transactions: Transaction[]): number {
   const now = new Date();
@@ -65,3 +78,5 @@ export function calculateTodayCount(transactions: Transaction[]): number {
     );
   }).length;
 }
+
+
