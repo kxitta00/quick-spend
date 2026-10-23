@@ -10,5 +10,21 @@ export function formatCurrencyZeroDecimals(amount: number): string {
   return (new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB', minimumFractionDigits: 0 })).format(amount);
 }
 
+//แปลงวันที่แบบไทย
+export function formatThaiDate(): string {
+  return new Intl.DateTimeFormat('th-TH', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date());
+}
 
-
+//แปลงเวลาแบบไทย
+export function formatThaiTime(): string {
+  return new Intl.DateTimeFormat('th-TH', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(new Date());
+} 

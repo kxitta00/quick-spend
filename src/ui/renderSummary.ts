@@ -2,7 +2,7 @@ import { dom } from "./domElements";
 import { getTransactions } from "../storage/transactionStorage"
 import { type Transaction, type ReportTransactions } from "../types";
 import { calculateBalance, calculateTotalIncome, calculateTotalExpense, calculateMonthlyExpense, calculateMonthlyIncome, calculateTodayExpense, calculateTodayCount } from "../logic/calculations";
-import { formatCurrency, formatCurrencyZeroDecimals } from "../utils/formatters";
+import { formatCurrency, formatCurrencyZeroDecimals, formatThaiTime } from "../utils/formatters";
 import { DEFAULT_MONTHLY_BUDGET } from "../constants";
 
 //ฟังก์ชัน render การ์ดหลัก 3 ใบ Hero, Card Row
@@ -37,5 +37,6 @@ export function renderSummaryCards(): void {
   dom.todayExpense.textContent = `-${formatCurrency(sumTransactions.totalTodayExpense)}`
   dom.todayCount.textContent = `${sumTransactions.totalTodayCount} รายการ`
 
-
+  //time
+  dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ·วันนี้ ${formatThaiTime()}`
 }

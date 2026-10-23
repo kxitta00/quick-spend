@@ -5,6 +5,7 @@ import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "./constants";
 import { type Catagory, type Transaction } from "./types";
 import { saveTransactions, getTransactions } from "./storage/transactionStorage";
 import { renderCategoryButtons } from "./ui/renderCategories";
+import { formatThaiDate, formatThaiTime } from "./utils/formatters";
 
 import { createIcons, icons } from "lucide";
 createIcons({ icons });
@@ -30,14 +31,17 @@ dom.categoryGrid.addEventListener('click', (event) => {
 //โหมดใช้จ่าย
 dom.btnExpense.addEventListener('click', () => {
   selectedCategoryId = ''
+  dom.amountInput.value = ''
   toggleCategory = 'expense'
   dom.btnExpense.classList.add('active')
   dom.btnIncome.classList.remove('active')
   renderCategoryButtons(EXPENSE_CATEGORIES)
+
 })
 //โหมดรายรับ
 dom.btnIncome.addEventListener('click', () => {
   selectedCategoryId = ''
+  dom.amountInput.value = ''
   toggleCategory = 'income'
   dom.btnIncome.classList.add('active')
   dom.btnExpense.classList.remove('active')
@@ -85,9 +89,10 @@ dom.form.addEventListener('submit', (e) => {
   renderSummaryCards()
 })
 
-//timeDisplay ยังไม่ทำ!!
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
+dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ · วันนี้ ${formatThaiTime()}`
+dom.overviewTimeDisplay.textContent = formatThaiDate()
 renderCategoryButtons(EXPENSE_CATEGORIES)
 renderSummaryCards()
 
