@@ -33,3 +33,7 @@ export type ReportTransactions = {
   totalTodayExpense: number,
   totalTodayCount: number
 }
+
+
+//type สลับโหมดหน้าจอ
+export type ViewType = 'view-overview' | 'view-transactions' | 'view-reports' | 'view-settings';

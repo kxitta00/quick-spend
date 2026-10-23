@@ -27,3 +27,9 @@ export function getTransactions(): Transaction[] {
   }
   return [];
 }
+
+//ลบรายการที่เลือกออกจาก LocalStorage
+export function deleteTransaction(id: string): void {
+  const tranfilter: Transaction[] = getTransactions().filter((item) => item.id !== id);
+  saveTransactions(tranfilter)
+}

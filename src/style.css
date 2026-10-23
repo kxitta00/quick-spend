@@ -78,8 +78,8 @@ main {
 #view-overview {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   gap: 10px;
+  overflow: hidden;
 }
 
 /* 3. Hero Card */
@@ -344,6 +344,7 @@ main {
   flex: 1;
   cursor: pointer;
   color: var(--text-secondary);
+  transition: 0.3s ease;
 }
 
 .nav-title {
@@ -360,4 +361,14 @@ main {
 .nav-item.active {
   color: var(--text-primary);
   font-weight: 600;
+}
+
+/* display controll */
+
+.view-section:not(.active) {
+  display: none !important;
+}
+
+.view-section {
+  display: block;
 }

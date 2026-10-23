@@ -2,10 +2,11 @@ import './style.css'
 import { dom } from "./ui/domElements";
 import { renderSummaryCards } from "./ui/renderSummary";
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "./constants";
-import { type Catagory, type Transaction } from "./types";
+import { type Catagory, type Transaction, type ViewType } from "./types";
 import { saveTransactions, getTransactions } from "./storage/transactionStorage";
 import { renderCategoryButtons } from "./ui/renderCategories";
 import { formatThaiDate, formatThaiTime } from "./utils/formatters";
+import { switchPage } from "./ui/switchPage";
 
 import { createIcons, icons } from "lucide";
 createIcons({ icons });
@@ -57,8 +58,14 @@ dom.form.addEventListener('submit', (e) => {
   let selecCateId = selectedCategoryId;
   let selecTogCate = toggleCategory;
   const now = new Date().toISOString();
-
-  if (isNaN(Number(rawNumber)) || Number(rawNumber) <= 0) { return }
+  if (rawNumber === '') {
+    alert('กรุณากรอกจำนวนเงิน!!');
+    return
+  }
+  if (isNaN(Number(rawNumber)) || Number(rawNumber) <= 0) {
+    alert('ข้อมูลไม่ถูกต้องกรุณากรอกใหม่!!')
+    return
+  }
   if (!selecCateId) {
     alert('กรุณาเลือกหมวดหมู่ที่จะบันทึกรายการ!!')
     return
@@ -90,7 +97,22 @@ dom.form.addEventListener('submit', (e) => {
 })
 
 
+
+//nav
+dom.navButtons.addEventListener('click', (event) => {
+  const navBtn = (event.target as HTMLElement).closest('.nav-item') as HTMLButtonElement | null;
+  if (!navBtn) return;
+  dom.navButtons.querySelectorAll('.nav-item').forEach((b) => b.classList.remove('active'))
+  navBtn.classList.add('active')
+  let diaplayType = navBtn.dataset.view;
+  if (!diaplayType) return;
+  switchPage(diaplayType as ViewType)
+})
+
+
+
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
+switchPage('view-overview');
 dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ · วันนี้ ${formatThaiTime()}`
 dom.overviewTimeDisplay.textContent = formatThaiDate()
 renderCategoryButtons(EXPENSE_CATEGORIES)

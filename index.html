@@ -20,7 +20,7 @@
   </header>
   <main>
     <!-- PAGE1 -->
-    <section id="view-overview">
+    <section class="view-section" id="view-overview">
       <!-- HERO CARD -->
       <div class="card card-hero">
         <span class="hero-title">ยอดเงินคงเหลือ</span>
@@ -74,25 +74,25 @@
       </form>
     </section>
     <!-- PAGE2 -->
-    <section id="view-transactions"></section>
+    <section class="view-section" id="view-transactions"></section>
     <!-- PAGE3 -->
-    <section id="view-reports"></section>
+    <section class="view-section" id="view-reports"></section>
     <!-- PAGE4 -->
-    <section id="view-settings"></section>
+    <section class="view-section" id="view-settings"></section>
   </main>
 
   <!-- NAV-BAR -->
   <nav class="bottom-nav">
-    <button class="nav-item active">
+    <button class="nav-item active" data-view="view-overview">
       <i data-lucide="house"></i><span class="nav-title overview">ภาพรวม</span>
     </button>
-    <button class="nav-item">
+    <button class="nav-item" data-view="view-transactions">
       <i data-lucide="list"></i><span class="nav-title list">รายการ</span>
     </button>
-    <button class="nav-item">
+    <button class="nav-item" data-view="view-reports">
       <i data-lucide="bar-chart-2"></i><span class="nav-title report">รายงาน</span>
     </button>
-    <button class="nav-item">
+    <button class="nav-item" data-view="view-settings">
       <i data-lucide="settings-2"></i><span class="nav-title setting">ตั้งค่า</span>
     </button>
   </nav>

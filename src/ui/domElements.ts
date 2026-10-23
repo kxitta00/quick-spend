@@ -26,6 +26,14 @@ export const dom = {
   categoryButtons: document.querySelectorAll<HTMLButtonElement>('.category-btn'),
   noteInput: document.getElementById('note-input') as HTMLInputElement,
   submitBtn: document.getElementById('submit-btn') as HTMLButtonElement,
-  formTimeDisplay: document.getElementById('form-timestamp') as HTMLElement
+  formTimeDisplay: document.getElementById('form-timestamp') as HTMLElement,
 
+
+  //navbar
+  navButtons: document.querySelector('.bottom-nav') as HTMLElement,
+  //displayControll
+  displayOverview: document.getElementById('view-overview') as HTMLElement,
+  displayTransactions: document.getElementById('view-transactions') as HTMLElement,
+  displayReports: document.getElementById('view-reports') as HTMLElement,
+  displaySettings: document.getElementById('view-settings') as HTMLElement,
 }
