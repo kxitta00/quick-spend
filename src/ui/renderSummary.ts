@@ -37,4 +37,5 @@ export function renderSummaryCards(): void {
   dom.todayExpense.textContent = `-${formatCurrency(sumTransactions.totalTodayExpense)}`
   dom.todayCount.textContent = `${sumTransactions.totalTodayCount} รายการ`
 
+
 }
