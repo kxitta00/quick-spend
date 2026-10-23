@@ -27,7 +27,7 @@ export const dom = {
   noteInput: document.getElementById('note-input') as HTMLInputElement,
   submitBtn: document.getElementById('submit-btn') as HTMLButtonElement,
   formTimeDisplay: document.getElementById('form-timestamp') as HTMLElement,
-
+  symbol: document.querySelector('.currency-symbol') as HTMLElement,
 
   //navbar
   navButtons: document.querySelector('.bottom-nav') as HTMLElement,
@@ -36,4 +36,8 @@ export const dom = {
   displayTransactions: document.getElementById('view-transactions') as HTMLElement,
   displayReports: document.getElementById('view-reports') as HTMLElement,
   displaySettings: document.getElementById('view-settings') as HTMLElement,
+  displayTitle: document.querySelector('.header-title') as HTMLElement,
+
+  //Transactions Page
+
 }

@@ -37,7 +37,7 @@ dom.btnExpense.addEventListener('click', () => {
   dom.btnExpense.classList.add('active')
   dom.btnIncome.classList.remove('active')
   renderCategoryButtons(EXPENSE_CATEGORIES)
-
+  dom.symbol.textContent = "฿"
 })
 //โหมดรายรับ
 dom.btnIncome.addEventListener('click', () => {
@@ -47,6 +47,7 @@ dom.btnIncome.addEventListener('click', () => {
   dom.btnIncome.classList.add('active')
   dom.btnExpense.classList.remove('active')
   renderCategoryButtons(INCOME_CATEGORIES)
+  dom.symbol.textContent = "+฿"
 })
 
 //ฟรอม
@@ -112,6 +113,8 @@ dom.navButtons.addEventListener('click', (event) => {
 
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
+dom.displayTitle.textContent = 'ภาพรวม'
+dom.symbol.textContent = "฿"
 switchPage('view-overview');
 dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ · วันนี้ ${formatThaiTime()}`
 dom.overviewTimeDisplay.textContent = formatThaiDate()

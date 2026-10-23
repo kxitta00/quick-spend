@@ -74,7 +74,7 @@ main {
   flex-direction: column;
 }
 
-
+/* PAGE1 */
 #view-overview {
   display: flex;
   flex-direction: column;
@@ -363,12 +363,194 @@ main {
   font-weight: 600;
 }
 
-/* display controll */
-
+/* 7. SPA View Display Controls */
 .view-section:not(.active) {
   display: none !important;
 }
 
 .view-section {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 8. Page 2: Transactions View */
+#view-transactions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 8.1 Month Selector */
+.month-selector {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 8px 14px;
+  align-items: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  background-color: var(--text-inverse);
+}
+
+.month-display {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.month-btn {
+  background-color: transparent;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.month-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* 8.2 Search Bar */
+.search-bar {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-input);
+  background-color: var(--text-inverse);
+}
+
+.search-input {
+  border: none;
+  outline: 0px;
+  background-color: transparent;
+  width: 100%;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-symbol svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  stroke: var(--text-secondary);
+}
+
+/* 8.3 Transactions Card & Date Group Header */
+.transaction-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 16px;
+  background-color: var(--text-inverse);
+}
+
+.group-header {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+
+
+}
+
+/* 8.4 Transaction Item Row */
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.transaction-item-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: var(--progress-track);
+}
+
+.category-icon-box svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+.item-note-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.item-title {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.item-time {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.transaction-item-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.item-amount {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 8.5 Delete Button */
+.btn-delete {
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.btn-delete svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
+  stroke: var(--text-secondary);
 }

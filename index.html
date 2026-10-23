@@ -59,7 +59,7 @@
           <button type="button" class="toggle-btn" id="btn-type-income">รายรับ</button>
         </div>
         <div class="amount-input-group">
-          <span class="currency-symbol">฿</span>
+          <span class="currency-symbol"></span>
           <input class="amount-input" id="amount-input" type="number" placeholder="0.00">
         </div>
         <!--Grid-Card-Category -->
@@ -74,7 +74,40 @@
       </form>
     </section>
     <!-- PAGE2 -->
-    <section class="view-section" id="view-transactions"></section>
+    <section class="view-section" id="view-transactions">
+      <!-- month-select -->
+      <div class="month-selector">
+        <button class="month-btn" id="btn-prev-month"><i data-lucide="chevron-left"></i></button>
+        <span class="month-display" id="current-month-display">ตุลาคม 2569</span>
+        <button class="month-btn" id="btn-next-month"><i data-lucide="chevron-right"></i></button>
+      </div>
+      <!-- search-bar -->
+      <div class="search-bar">
+        <span class="search-symbol"><i data-lucide="search"></i></span>
+        <input class="search-input" id="search-input" type="text" placeholder="ค้นหาโน้ตหรือหมวดหมู่">
+      </div>
+      <!-- list -->
+      <div class="card transaction-card" id="transactions-container">
+        <div class="group-header">
+          <span class="group-date">วันนี้</span>
+          <span class="group-total">-฿189</span>
+        </div>
+        <!-- tran-list -->
+        <div class="transaction-item">
+          <div class="transaction-item-left">
+            <div class="category-icon-box"><i data-lucide="utensils"></i></div>
+            <div class="item-note-time">
+              <span class="item-title">อเมริกาโน่เย็น</span>
+              <time class="item-time">14:05</time>
+            </div>
+          </div>
+          <div class="transaction-item-right">
+            <span class="item-amount">-฿165</span>
+            <button class="btn-delete" type="button"><i data-lucide="trash-2"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- PAGE3 -->
     <section class="view-section" id="view-reports"></section>
     <!-- PAGE4 -->
