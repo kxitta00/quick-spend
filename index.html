@@ -23,7 +23,7 @@
     <section class="view-section" id="view-overview">
       <!-- HERO CARD -->
       <div class="card card-hero">
-        <span class="hero-title">ยอดเงินคงเหลือ</span>
+        <span class="hero-title">ยอดเงินคงเหลือ (ทั้งหมด)</span>
         <h2 class="hero-amount" id="balance-amount"></h2>
         <p class="hero-sub" id="balance-subtitle"></p>
       </div>
@@ -66,7 +66,7 @@
         <div class="category-grid">
         </div>
         <!-- Note -->
-        <input class="note-input" id="note-input" type="text" placeholder="โน้ต เช่น กาแฟ">
+        <input class="note-input" id="note-input" type="text" placeholder="โน้ต เช่น กาแฟ" autocomplete="off">
         <!-- Save -->
         <button type="submit" class="submit-btn" id="submit-btn">+ บันทึกรายการ</button>
         <!-- Time -->
@@ -84,7 +84,8 @@
       <!-- search-bar -->
       <div class="search-bar">
         <span class="search-symbol"><i data-lucide="search"></i></span>
-        <input class="search-input" id="search-input" type="text" placeholder="ค้นหาโน้ตหรือหมวดหมู่">
+        <input class="search-input" id="search-input" type="text" placeholder="ค้นหาโน้ตหรือหมวดหมู่"
+          autocomplete="off">
       </div>
       <!-- list -->
       <div class="card transaction-card" id="transactions-container">

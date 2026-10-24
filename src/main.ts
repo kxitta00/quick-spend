@@ -123,6 +123,18 @@ dom.transactionsContainer.addEventListener('click', (event) => {
   renderSummaryCards()
 })
 
+//searchInputPage2 ค้นหารายการ
+dom.searchInputPage2.addEventListener('input', () => {
+  const raw = dom.searchInputPage2.value.trim().toLocaleLowerCase();
+  if (!raw) {
+    renderTransactions()
+    return
+  }
+  const transFilteredList: Transaction[] = getTransactions().filter((item) => item.note?.toLowerCase().includes(raw) || item.category.name.toLowerCase().includes(raw));;
+  renderTransactions(transFilteredList)
+
+})
+
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
 renderTransactions()
 dom.displayTitle.textContent = 'ภาพรวม'

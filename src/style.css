@@ -429,16 +429,19 @@ main {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-input);
   background-color: var(--text-inverse);
+  overflow: hidden;
 }
 
 .search-input {
+  flex: 1;
   border: none;
   outline: 0px;
   background-color: transparent;
-  width: 100%;
+  min-height: 40px;
   font-size: 14px;
   letter-spacing: 0.5px;
 }
+
 
 .search-input::placeholder {
   color: var(--text-secondary);
