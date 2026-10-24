@@ -153,7 +153,7 @@ dom.btnNextMonth.addEventListener('click', () => {
 updateTransactionsView(currentSelectedMonth)
 dom.displayTitle.textContent = 'ภาพรวม'
 dom.symbol.textContent = "-฿"
-switchPage('view-overview');
+switchPage('view-reports');
 dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ · วันนี้ ${formatThaiTime()}`
 dom.overviewTimeDisplay.textContent = formatThaiDate()
 renderCategoryButtons(EXPENSE_CATEGORIES)
