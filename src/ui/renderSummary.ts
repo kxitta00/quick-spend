@@ -28,7 +28,7 @@ export function renderSummaryCards(): void {
 
   //Row Card 1
   dom.budgetPercent.textContent = `${percent}%`
-  dom.monthlyExpense.textContent = formatCurrencyZeroDecimals(sumTransactions.totalMonthlyExpense);
+  dom.monthlyExpense.textContent = `-${formatCurrencyZeroDecimals(sumTransactions.totalMonthlyExpense)}`;
   dom.monthlyBudget.textContent = `/${formatCurrencyZeroDecimals(monthlyBudget)}`;
   dom.budgetProgressFill.style.width = `${Math.min(100, percent)}%`
   dom.budgetRemaining.textContent = `เหลือ ${formatCurrencyZeroDecimals(remaining)}`

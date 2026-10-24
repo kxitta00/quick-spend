@@ -38,7 +38,7 @@ dom.btnExpense.addEventListener('click', () => {
   dom.btnExpense.classList.add('active')
   dom.btnIncome.classList.remove('active')
   renderCategoryButtons(EXPENSE_CATEGORIES)
-  dom.symbol.textContent = "฿"
+  dom.symbol.textContent = "-฿"
 })
 //โหมดรายรับ
 dom.btnIncome.addEventListener('click', () => {
@@ -152,8 +152,8 @@ dom.btnNextMonth.addEventListener('click', () => {
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
 updateTransactionsView(currentSelectedMonth)
 dom.displayTitle.textContent = 'ภาพรวม'
-dom.symbol.textContent = "฿"
-switchPage('view-overview');
+dom.symbol.textContent = "-฿"
+switchPage('view-reports');
 dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ · วันนี้ ${formatThaiTime()}`
 dom.overviewTimeDisplay.textContent = formatThaiDate()
 renderCategoryButtons(EXPENSE_CATEGORIES)

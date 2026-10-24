@@ -32,7 +32,7 @@
         <!-- Monthly CARD -->
         <div class="card">
           <div class="budget">
-            <span class="budget-title">ใช้ไปเดือนนี้</span>
+            <span class="budget-title">งบประมาณเดือนนี้</span>
             <span class="budget-percent" id="budget-percent"></span>
           </div>
           <div class="budget-amount">
@@ -66,11 +66,12 @@
         <div class="category-grid">
         </div>
         <!-- Note -->
-        <input class="note-input" id="note-input" type="text" placeholder="โน้ต เช่น กาแฟ" autocomplete="off">
+        <input class="note-input" id="note-input" type="text" placeholder="โน้ต เช่น กาแฟ, เงินหาย" autocomplete="off">
         <!-- Save -->
         <button type="submit" class="submit-btn" id="submit-btn">+ บันทึกรายการ</button>
         <!-- Time -->
         <time class="timestamp-hint" id="form-timestamp"></time>
+
       </form>
     </section>
     <!-- PAGE2 -->
@@ -78,7 +79,7 @@
       <!-- month-select -->
       <div class="month-selector">
         <button class="month-btn" id="btn-prev-month"><i data-lucide="chevron-left"></i></button>
-        <span class="month-display" id="current-month-display">ตุลาคม 2569</span>
+        <span class="month-display" id="current-month-display"></span>
         <button class="month-btn" id="btn-next-month"><i data-lucide="chevron-right"></i></button>
       </div>
       <!-- search-bar -->
@@ -90,29 +91,95 @@
       <!-- list -->
       <div class="card transaction-card" id="transactions-container">
         <div class="group-header">
-          <span class="group-date">วันนี้</span>
-          <span class="group-total">-฿165</span>
+          <span class="group-date"></span>
+          <span class="group-total"></span>
         </div>
         <!-- tran-list -->
         <div class="transaction-item">
           <div class="transaction-item-left">
             <div class="category-icon-box"><i data-lucide="utensils"></i></div>
             <div class="item-note-time">
-              <span class="item-title">อเมริกาโน่เย็น</span>
-              <time class="item-time">14:05</time>
+              <span class="item-title"></span>
+              <time class="item-time"></time>
             </div>
           </div>
           <div class="transaction-item-right">
-            <span class="item-amount">-฿165</span>
+            <span class="item-amount"></span>
             <button class="btn-delete" type="button"><i data-lucide="trash-2"></i></button>
           </div>
         </div>
       </div>
     </section>
     <!-- PAGE3 -->
-    <section class="view-section" id="view-reports"></section>
+    <section class="view-section" id="view-reports">
+      <!-- month-select -->
+      <div class="month-selector">
+        <button class="month-btn" id="report-prev-month"><i data-lucide="chevron-left"></i></button>
+        <span class="month-display" id="report-month-display">เดือนตุลา 2569</span>
+        <button class="month-btn" id="report-next-month"><i data-lucide="chevron-right"></i></button>
+      </div>
+      <!-- Card-row -->
+      <div class="card-row">
+        <div class="card stat-card">
+          <span class="stat-title">ใช้ไปเดือนนี้</span>
+          <span class="stat-amount" id="report-month-expense">฿7,420</span>
+        </div>
+        <div class="card stat-card">
+          <span class="stat-title">เฉลี่ยต่อวัน</span>
+          <span class="stat-amount" id="report-daily-average">฿353</span>
+        </div>
+      </div>
+      <!-- Monthly Expense Chart -->
+      <div class="card chart-card">
+        <h3 class="card-title">ค่าใช้จ่ายรายเดือน</h3>
+        <div class="bar-chart-container" id="report-bar-chart">
+          <!-- 1 -->
+          <div class="bar-col">
+            <div class="bar-value">฿6,980</div>
+            <div class="bar-pillar"></div>
+            <div class="bar-label">ต.ค.</div>
+          </div>
+          <!-- 2 -->
+          <div class="bar-col">
+            <div class="bar-value">฿6,980</div>
+            <div class="bar-pillar"></div>
+            <div class="bar-label">ต.ค.</div>
+          </div>
+          <!-- 3 -->
+          <div class="bar-col">
+            <div class="bar-value">฿6,980</div>
+            <div class="bar-pillar"></div>
+            <div class="bar-label">ต.ค.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Category-reports -->
+      <div class="card category-report-card">
+        <h3 class="card-title">แยกตามหมวดหมู่</h3>
+        <div class="category-stat-list" id="report-category-list">
+          <div class="category-stat-item">
+            <div class="stat-info-header">
+              <div class="stat-info-left">
+                <div class="stat-info-category-icon"><i data-lucide="utensils"></i></div>
+                <span class="stat-info-title">อาหาร</span>
+              </div>
+              <div class="stat-info-right">
+                <span class="stat-info-amount">฿2,600</span>
+                <span class="stat-info-percent">35%</span>
+              </div>
+            </div>
+
+            <div class="category-progress-track">
+              <div class="category-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- PAGE4 -->
-    <section class="view-section" id="view-settings"></section>
+    <section class="view-section" id="view-settings">
+
+    </section>
   </main>
 
   <!-- NAV-BAR -->

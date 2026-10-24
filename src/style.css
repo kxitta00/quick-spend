@@ -320,6 +320,7 @@ main {
   color: var(--text-secondary);
 }
 
+
 /* 6. Bottom Navigation */
 .bottom-nav {
   position: fixed;
@@ -574,3 +575,5 @@ main {
 .btn-delete:hover svg {
   stroke: var(--danger);
 }
+
+/* PAGE3 */
