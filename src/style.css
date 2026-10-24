@@ -411,10 +411,15 @@ main {
   cursor: pointer;
 }
 
+
 .month-btn svg {
   width: 18px;
   height: 18px;
   stroke-width: 2;
+}
+
+.month-btn:active {
+  transform: scale(1.2);
 }
 
 /* 8.2 Search Bar */

@@ -44,4 +44,9 @@ export function formatThaiTimeWithDate(date: Date): string {
     minute: '2-digit',
     hour12: false,
   }).format(date);
-} 
+}
+
+//แปลงชื่อเดือน
+export function formatThaiMonthYear(date: Date): string {
+  return new Intl.DateTimeFormat('th-TH', { month: 'long', year: 'numeric' }).format(date)
+}

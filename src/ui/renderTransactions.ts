@@ -1,11 +1,11 @@
 import { groupTransactionsByDate } from "../logic/transactionsGrouping";
 import { getTransactions } from "../storage/transactionStorage";
 import type { DateGroup, Transaction } from "../types";
-import { formatCurrencyZeroDecimals, formatThaiTimeWithDate } from "../utils/formatters";
+import { formatCurrencyZeroDecimals, formatThaiTimeWithDate, formatThaiMonthYear } from "../utils/formatters";
 import { dom } from "./domElements";
 import { createIcons, icons } from "lucide";
 
-//ฟังก์ชันวาดในส่วนรายงาน รายการต่างๆ
+//ฟังก์ชันรอวาดจอในส่วนรายงาน รายการต่างๆ
 export function renderTransactions(transactions?: Transaction[]): void {
   const rawList: Transaction[] = transactions ?? getTransactions()
   const tranGrop: DateGroup[] = groupTransactionsByDate(rawList);
@@ -47,4 +47,21 @@ export function renderTransactions(transactions?: Transaction[]): void {
   }
   dom.transactionsContainer.innerHTML = html;
   createIcons({ icons });
+}
+
+
+//ฟังก์ชันในการกรองเดือนตามที่ผู้ใช้เลือกหรือเดือนปัจจุบัน
+export function updateTransactionsView(selectedMonth: Date): void {
+  dom.currentMonthDisplay.textContent = formatThaiMonthYear(selectedMonth);
+
+  const monthFiltered: Transaction[] = getTransactions().filter(item => {
+    const d = new Date(item.createdAt);
+    return d.getMonth() === selectedMonth.getMonth() &&
+      d.getFullYear() === selectedMonth.getFullYear();
+  });
+
+  const keyword = dom.searchInputPage2.value.trim().toLowerCase();
+  const finalFiltered = keyword ? monthFiltered.filter(item => item.note?.toLowerCase().includes(keyword) || item.category.name.toLowerCase().includes(keyword)) : monthFiltered;
+
+  renderTransactions(finalFiltered)
 }

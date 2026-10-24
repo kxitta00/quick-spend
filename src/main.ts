@@ -5,18 +5,18 @@ import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "./constants";
 import { type Catagory, type Transaction, type ViewType } from "./types";
 import { saveTransactions, getTransactions, deleteTransaction } from "./storage/transactionStorage";
 import { renderCategoryButtons } from "./ui/renderCategories";
-import { formatThaiDate, formatThaiTime } from "./utils/formatters";
+import { formatThaiDate, formatThaiMonthYear, formatThaiTime } from "./utils/formatters";
 import { switchPage } from "./ui/switchPage";
+import { updateTransactionsView } from './ui/renderTransactions';
 
 import { createIcons, icons } from "lucide";
-import { renderTransactions } from './ui/renderTransactions';
 createIcons({ icons });
 
 
 //ตัวแปรคุม state
 let selectedCategoryId = '';
 let toggleCategory: 'expense' | 'income' = 'expense';
-
+let currentSelectedMonth = new Date();
 
 //ปุ่มหมวดหมู่
 dom.categoryGrid.addEventListener('click', (event) => {
@@ -60,6 +60,10 @@ dom.form.addEventListener('submit', (e) => {
   let selecCateId = selectedCategoryId;
   let selecTogCate = toggleCategory;
   const now = new Date().toISOString();
+  if (rawNumber === '' && !selecCateId) {
+    alert('กรุณากรอกข้อมูลก่อนบันทึกรายการ!')
+    return
+  }
   if (rawNumber === '') {
     alert('กรุณากรอกจำนวนเงิน!!');
     return
@@ -96,7 +100,7 @@ dom.form.addEventListener('submit', (e) => {
   selectedCategoryId = ''
   dom.categoryGrid.querySelectorAll('.category-btn').forEach((b) => b.classList.remove('active'))
   renderSummaryCards()
-  renderTransactions()
+  updateTransactionsView(currentSelectedMonth)
 })
 
 
@@ -112,31 +116,41 @@ dom.navButtons.addEventListener('click', (event) => {
   switchPage(diaplayType as ViewType)
 })
 
-//delete transaction
+//delete transactionPage2
 dom.transactionsContainer.addEventListener('click', (event) => {
   const btn = (event.target as HTMLElement).closest('.btn-delete') as HTMLButtonElement | null;
   if (!btn) { return };
   const id = btn.dataset.id;
   if (!confirm('ต้องการลบรายการนี้ใช่มั้ย?')) return;
   deleteTransaction(id!)
-  renderTransactions()
   renderSummaryCards()
+  updateTransactionsView(currentSelectedMonth)
 })
 
 //searchInputPage2 ค้นหารายการ
 dom.searchInputPage2.addEventListener('input', () => {
-  const raw = dom.searchInputPage2.value.trim().toLocaleLowerCase();
-  if (!raw) {
-    renderTransactions()
-    return
-  }
-  const transFilteredList: Transaction[] = getTransactions().filter((item) => item.note?.toLowerCase().includes(raw) || item.category.name.toLowerCase().includes(raw));;
-  renderTransactions(transFilteredList)
+  updateTransactionsView(currentSelectedMonth)
+})
 
+//SelectedMonthPage2
+//PrevMonth
+dom.btnPrevMonth.addEventListener('click', () => {
+  currentSelectedMonth.setDate(1);
+  currentSelectedMonth.setMonth(currentSelectedMonth.getMonth() - 1);
+  dom.currentMonthDisplay.textContent = `${formatThaiMonthYear(currentSelectedMonth)}`
+  updateTransactionsView(currentSelectedMonth)
+})
+
+//nextMonth
+dom.btnNextMonth.addEventListener('click', () => {
+  currentSelectedMonth.setDate(1);
+  currentSelectedMonth.setMonth(currentSelectedMonth.getMonth() + 1);
+  dom.currentMonthDisplay.textContent = `${formatThaiMonthYear(currentSelectedMonth)}`
+  updateTransactionsView(currentSelectedMonth)
 })
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
-renderTransactions()
+updateTransactionsView(currentSelectedMonth)
 dom.displayTitle.textContent = 'ภาพรวม'
 dom.symbol.textContent = "฿"
 switchPage('view-overview');
