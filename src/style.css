@@ -548,6 +548,7 @@ main {
   border: none;
   cursor: pointer;
   padding: 6px;
+  transition: transform 0.15s ease;
 }
 
 .btn-delete svg {
@@ -555,4 +556,13 @@ main {
   height: 14px;
   stroke-width: 2;
   stroke: var(--text-secondary);
+  transition: stroke 0.2s ease;
+}
+
+.btn-delete:active {
+  transform: scale(1.2);
+}
+
+.btn-delete:hover svg {
+  stroke: var(--danger);
 }

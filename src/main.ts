@@ -3,7 +3,7 @@ import { dom } from "./ui/domElements";
 import { renderSummaryCards } from "./ui/renderSummary";
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "./constants";
 import { type Catagory, type Transaction, type ViewType } from "./types";
-import { saveTransactions, getTransactions } from "./storage/transactionStorage";
+import { saveTransactions, getTransactions, deleteTransaction } from "./storage/transactionStorage";
 import { renderCategoryButtons } from "./ui/renderCategories";
 import { formatThaiDate, formatThaiTime } from "./utils/formatters";
 import { switchPage } from "./ui/switchPage";
@@ -112,7 +112,16 @@ dom.navButtons.addEventListener('click', (event) => {
   switchPage(diaplayType as ViewType)
 })
 
-
+//delete transaction
+dom.transactionsContainer.addEventListener('click', (event) => {
+  const btn = (event.target as HTMLElement).closest('.btn-delete') as HTMLButtonElement | null;
+  if (!btn) { return };
+  const id = btn.dataset.id;
+  if (!confirm('ต้องการลบรายการนี้ใช่มั้ย?')) return;
+  deleteTransaction(id!)
+  renderTransactions()
+  renderSummaryCards()
+})
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
 renderTransactions()
