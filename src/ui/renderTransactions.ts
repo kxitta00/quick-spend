@@ -1,0 +1,50 @@
+import { groupTransactionsByDate } from "../logic/transactionsGrouping";
+import { getTransactions } from "../storage/transactionStorage";
+import type { DateGroup, Transaction } from "../types";
+import { formatCurrencyZeroDecimals, formatThaiTimeWithDate } from "../utils/formatters";
+import { dom } from "./domElements";
+import { createIcons, icons } from "lucide";
+
+//ฟังก์ชันวาดในส่วนรายงาน รายการต่างๆ
+export function renderTransactions(transactions?: Transaction[]): void {
+  const rawList: Transaction[] = transactions ?? getTransactions()
+  const tranGrop: DateGroup[] = groupTransactionsByDate(rawList);
+  let html: string = '';
+
+  if (rawList.length === 0 || tranGrop.length === 0) {
+    dom.transactionsContainer.innerHTML = `
+     <div class="empty-state" style="text-align: center; padding: 24px 0; color: var(--text-secondary);">
+      ยังไม่มีรายการบันทึก
+    </div>
+    `;
+    return
+  }
+  for (const item of tranGrop) {
+    html += `
+    <div class="group-header">
+          <span class="group-date">${item.dateLabel}</span>
+          <span class="group-total">${formatCurrencyZeroDecimals(item.dayTotal)}</span>
+        </div>
+    `
+    for (const list of item.items) {
+      const typeList = list.type === 'expense' ? `-${formatCurrencyZeroDecimals(list.amount)}` : `+${formatCurrencyZeroDecimals(list.amount)}`;
+      html += `
+  <div class="transaction-item">
+          <div class="transaction-item-left">
+            <div class="category-icon-box"><i data-lucide="${list.category.icon}"></i></div>
+            <div class="item-note-time">
+              <span class="item-title">${list.note || list.category.name}</span>
+              <time class="item-time">${formatThaiTimeWithDate(new Date(list.createdAt))}</time>
+            </div>
+          </div>
+          <div class="transaction-item-right">
+            <span class="item-amount">${typeList}</span>
+            <button class="btn-delete" type="button" data-id="${list.id}"><i data-lucide="trash-2"></i></button>
+          </div>
+        </div>
+    `
+    }
+  }
+  dom.transactionsContainer.innerHTML = html;
+  createIcons({ icons });
+}

@@ -260,8 +260,10 @@ main {
 }
 
 .currency-symbol {
+  white-space: nowrap;
   font-size: 24px;
   color: var(--text-secondary);
+  line-height: 1;
 }
 
 .category-grid {

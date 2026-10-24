@@ -31,13 +31,18 @@ export const dom = {
 
   //navbar
   navButtons: document.querySelector('.bottom-nav') as HTMLElement,
-  //displayControll
+  //displayControl
   displayOverview: document.getElementById('view-overview') as HTMLElement,
   displayTransactions: document.getElementById('view-transactions') as HTMLElement,
   displayReports: document.getElementById('view-reports') as HTMLElement,
   displaySettings: document.getElementById('view-settings') as HTMLElement,
   displayTitle: document.querySelector('.header-title') as HTMLElement,
 
-  //Transactions Page
+  // Transactions Page
+  btnPrevMonth: document.getElementById('btn-prev-month') as HTMLButtonElement,
+  currentMonthDisplay: document.getElementById('current-month-display') as HTMLElement,
+  btnNextMonth: document.getElementById('btn-next-month') as HTMLButtonElement,
+  searchInput: document.getElementById('search-input') as HTMLInputElement,
+  transactionsContainer: document.getElementById('transactions-container') as HTMLElement,
 
 }

@@ -9,6 +9,7 @@ import { formatThaiDate, formatThaiTime } from "./utils/formatters";
 import { switchPage } from "./ui/switchPage";
 
 import { createIcons, icons } from "lucide";
+import { renderTransactions } from './ui/renderTransactions';
 createIcons({ icons });
 
 
@@ -95,6 +96,7 @@ dom.form.addEventListener('submit', (e) => {
   selectedCategoryId = ''
   dom.categoryGrid.querySelectorAll('.category-btn').forEach((b) => b.classList.remove('active'))
   renderSummaryCards()
+  renderTransactions()
 })
 
 
@@ -113,6 +115,7 @@ dom.navButtons.addEventListener('click', (event) => {
 
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
+renderTransactions()
 dom.displayTitle.textContent = 'ภาพรวม'
 dom.symbol.textContent = "฿"
 switchPage('view-overview');

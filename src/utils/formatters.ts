@@ -20,6 +20,14 @@ export function formatThaiDate(): string {
   }).format(new Date());
 }
 
+//แปลงวันที่แบบไทยเอา 2 ตำแหน่ง
+export function formatThaiDateTwoPosition(date: Date): string {
+  return new Intl.DateTimeFormat('th-TH', {
+    day: 'numeric',
+    month: 'short',
+  }).format(date);
+}
+
 //แปลงเวลาแบบไทย
 export function formatThaiTime(): string {
   return new Intl.DateTimeFormat('th-TH', {
@@ -27,4 +35,13 @@ export function formatThaiTime(): string {
     minute: '2-digit',
     hour12: false,
   }).format(new Date());
+}
+
+//แปลงเวลาแบบไทยโดยรับพารามีเตอร์
+export function formatThaiTimeWithDate(date: Date): string {
+  return new Intl.DateTimeFormat('th-TH', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(date);
 } 

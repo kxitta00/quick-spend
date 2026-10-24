@@ -37,3 +37,9 @@ export type ReportTransactions = {
 
 //type สลับโหมดหน้าจอ
 export type ViewType = 'view-overview' | 'view-transactions' | 'view-reports' | 'view-settings';
+
+export type DateGroup = {
+  dateLabel: string;
+  dayTotal: number;
+  items: Transaction[];
+}
