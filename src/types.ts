@@ -38,8 +38,17 @@ export type ReportTransactions = {
 //type สลับโหมดหน้าจอ
 export type ViewType = 'view-overview' | 'view-transactions' | 'view-reports' | 'view-settings';
 
+//type รายการในหน้ารายงาน
 export type DateGroup = {
   dateLabel: string;
   dayTotal: number;
   items: Transaction[];
+}
+
+//type กราฟแท่ง
+export type MonthlyBarData = {
+  monthLabel: string;
+  amount: number;
+  percent: number;
+  isActive: boolean;
 }
