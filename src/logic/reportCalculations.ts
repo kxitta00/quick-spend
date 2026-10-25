@@ -1,4 +1,4 @@
-import { type MonthlyBarData, type Transaction } from "../types";
+import { type MonthlyBarData, type Transaction, type CategoryReportData, type Catagory } from "../types";
 
 
 //ฟังชันหารายจ่ายเฉลี่ยนต่อวันโดยนับจากทั้งเดือน
@@ -47,4 +47,39 @@ export function calculateLast3MonthsExpense(transactions: Transaction[], selecte
     }
   })
   return result;
+}
+
+//ฟังก์ชันคำณวนแยกหมวดหมู่สรุปยอดรายจ่ายในเดือนนั้นๆ
+export function calculateCategoryBreakdown(transactions: Transaction[], selectedDate: Date): CategoryReportData[] {
+  if (transactions.length === 0) {
+    return []
+  }
+  const categoryMap = transactions.reduce((acc, curr) => {
+    const itemDate = new Date(curr.createdAt);
+    if (curr.type === 'expense' &&
+      itemDate.getMonth() === new Date(selectedDate).getMonth() &&
+      itemDate.getFullYear() === new Date(selectedDate).getFullYear()
+    ) {
+      const catId: string = curr.category.id;
+      if (!acc[catId]) {
+        acc[catId] = { category: curr.category, amount: 0, percent: 0 }
+      }
+      acc[catId].amount += curr.amount;
+    }
+    return acc
+  }, {} as { [key: string]: { category: Catagory; amount: number; percent: number } })
+
+  const totalMonthExpense = Object.values(categoryMap).reduce((acc, curr) => {
+    return acc + curr.amount
+  }, 0)
+  if (totalMonthExpense === 0) {
+    return [];
+  }
+  const categoryList = Object.values(categoryMap);
+  categoryList.forEach((item) => {
+    item.percent = Math.round((item.amount / totalMonthExpense) * 100);
+  })
+  categoryList.sort((a, b) => b.amount - a.amount)
+
+  return categoryList
 }
