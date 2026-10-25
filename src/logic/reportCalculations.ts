@@ -49,7 +49,7 @@ export function calculateLast3MonthsExpense(transactions: Transaction[], selecte
   return result;
 }
 
-//ฟังก์ชันคำณวนแยกหมวดหมู่สรุปยอดรายจ่ายในเดือนนั้นๆ
+//ฟังก์ชันคำณวนแยกหมวดหมู่สรุปยอดรายจ่ายในเดือนนั้น
 export function calculateCategoryBreakdown(transactions: Transaction[], selectedDate: Date): CategoryReportData[] {
   if (transactions.length === 0) {
     return []
