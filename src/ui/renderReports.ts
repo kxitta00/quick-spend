@@ -27,10 +27,11 @@ export function renderReports(allTransactions: Transaction[], selectedMonth: Dat
   let htmlChart: string = '';
   const rawChart: MonthlyBarData[] = calculateLast3MonthsExpense(rawList, selectedMonth);
   for (const item of rawChart) {
+    const pillarHeight = Math.round((item.percent / 100) * 140);
 
     htmlChart += `<div class="bar-col">
   <div class="bar-value">${formatCurrencyZeroDecimals(item.amount)}</div>
-  <div class="bar-pillar ${item.isActive ? 'active' : ''}" style="height: ${item.percent}%;"></div>
+  <div class="bar-pillar ${item.isActive ? 'active' : ''}" style="height: ${pillarHeight}px;"></div>
   <div class="bar-label">${item.monthLabel}</div>
 </div>`;
 
