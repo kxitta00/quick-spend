@@ -172,7 +172,7 @@ updateReportsView(currentSelectedMonth)
 updateTransactionsView(currentSelectedMonth)
 dom.displayTitle.textContent = 'ภาพรวม'
 dom.symbol.textContent = "-฿"
-switchPage('view-reports');
+switchPage('view-overview');
 dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ · วันนี้ ${formatThaiTime()}`
 dom.overviewTimeDisplay.textContent = formatThaiDate()
 renderCategoryButtons(EXPENSE_CATEGORIES)
