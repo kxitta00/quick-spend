@@ -1,21 +1,18 @@
 import { type MonthlyBarData, type Transaction, type CategoryReportData, type Catagory } from "../types";
+import { calculateTotalExpense } from "./calculations";
 
 
-//ฟังชันหารายจ่ายเฉลี่ยนต่อวันโดยนับจากทั้งเดือน
-export function calculateDailyAverage(monthExpense: number, target: Date): number {
-  const now = new Date();
-  const itemDate = new Date(target);
-  if (monthExpense <= 0 || !monthExpense || isNaN(Number(monthExpense))) {
-    return 0
-  }
-  let days: number = 0;
-  if (itemDate.getMonth() === now.getMonth() && itemDate.getFullYear() === now.getFullYear()) {
-    days = now.getDate();
-  } else {
-    days = new Date(itemDate.getFullYear(), itemDate.getMonth() + 1, 0).getDate()
-  }
+//ฟังชันหารายจ่ายเฉลี่ยนต่อวันโดยนับจากทั้งเดือนที่บันทึกรายการ
+export function calculateDailyAverage(currentMonthTransactions: Transaction[]): number {
+  const totalExpense: number = calculateTotalExpense(currentMonthTransactions);
 
-  return Math.round(monthExpense / days)
+  const expenseDates: string[] = currentMonthTransactions
+    .filter((item => item.type === 'expense'))
+    .map((item) => new Date(item.createdAt).toDateString())
+
+  const uniqueDays = new Set(expenseDates).size;
+  if (uniqueDays === 0) return 0;
+  return Math.round(totalExpense / uniqueDays);
 }
 
 //ฟังก์ชันหากราฟแท่ง 3 เดือน
@@ -49,7 +46,7 @@ export function calculateLast3MonthsExpense(transactions: Transaction[], selecte
   return result;
 }
 
-//ฟังก์ชันคำณวนแยกหมวดหมู่สรุปยอดรายจ่ายในเดือนนั้น
+//ฟังก์ชันคำณวนแยกหมวดหมู่สรุปยอดรายจ่ายในเดือนนั้นๆ
 export function calculateCategoryBreakdown(transactions: Transaction[], selectedDate: Date): CategoryReportData[] {
   if (transactions.length === 0) {
     return []

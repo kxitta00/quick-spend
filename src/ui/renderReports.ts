@@ -21,7 +21,7 @@ export function renderReports(allTransactions: Transaction[], selectedMonth: Dat
 
   // card-row
   dom.statMonthExpense.textContent = `${formatCurrencyZeroDecimals(monthExpense)}`
-  dom.statDailyExpense.textContent = `${formatCurrencyZeroDecimals(calculateDailyAverage(monthExpense, new Date(selectedMonth)))}`
+  dom.statDailyExpense.textContent = `${formatCurrencyZeroDecimals(calculateDailyAverage(currentList))}`
 
   //chart-bar
   let htmlChart: string = '';
