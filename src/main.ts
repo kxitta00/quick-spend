@@ -10,6 +10,7 @@ import { switchPage } from "./ui/switchPage";
 import { updateTransactionsView } from './ui/renderTransactions';
 
 import { createIcons, icons } from "lucide";
+import { updateReportsView } from './ui/renderReports';
 createIcons({ icons });
 
 
@@ -101,6 +102,7 @@ dom.form.addEventListener('submit', (e) => {
   dom.categoryGrid.querySelectorAll('.category-btn').forEach((b) => b.classList.remove('active'))
   renderSummaryCards()
   updateTransactionsView(currentSelectedMonth)
+  updateReportsView(currentSelectedMonth)
 })
 
 
@@ -125,6 +127,7 @@ dom.transactionsContainer.addEventListener('click', (event) => {
   deleteTransaction(id!)
   renderSummaryCards()
   updateTransactionsView(currentSelectedMonth)
+  updateReportsView(currentSelectedMonth)
 })
 
 //searchInputPage2 ค้นหารายการ
@@ -140,7 +143,6 @@ dom.btnPrevMonth.addEventListener('click', () => {
   dom.currentMonthDisplay.textContent = `${formatThaiMonthYear(currentSelectedMonth)}`
   updateTransactionsView(currentSelectedMonth)
 })
-
 //nextMonth
 dom.btnNextMonth.addEventListener('click', () => {
   currentSelectedMonth.setDate(1);
@@ -149,11 +151,28 @@ dom.btnNextMonth.addEventListener('click', () => {
   updateTransactionsView(currentSelectedMonth)
 })
 
+//SelectedMonthPage3
+//PrevMonth
+dom.reportPrevMonth.addEventListener('click', () => {
+  currentSelectedMonth.setDate(1);
+  currentSelectedMonth.setMonth(currentSelectedMonth.getMonth() - 1);
+  dom.reportMonthDisplay.textContent = `${formatThaiMonthYear(currentSelectedMonth)}`
+  updateReportsView(currentSelectedMonth)
+})
+//nextMonth
+dom.reportNextMonth.addEventListener('click', () => {
+  currentSelectedMonth.setDate(1);
+  currentSelectedMonth.setMonth(currentSelectedMonth.getMonth() + 1);
+  dom.reportMonthDisplay.textContent = `${formatThaiMonthYear(currentSelectedMonth)}`
+  updateReportsView(currentSelectedMonth)
+})
+
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
+updateReportsView(currentSelectedMonth)
 updateTransactionsView(currentSelectedMonth)
 dom.displayTitle.textContent = 'ภาพรวม'
 dom.symbol.textContent = "-฿"
-switchPage('view-overview');
+switchPage('view-reports');
 dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ · วันนี้ ${formatThaiTime()}`
 dom.overviewTimeDisplay.textContent = formatThaiDate()
 renderCategoryButtons(EXPENSE_CATEGORIES)

@@ -52,3 +52,10 @@ export type MonthlyBarData = {
   percent: number;
   isActive: boolean;
 }
+
+//type รายงานหมวดหมู่
+export type CategoryReportData = {
+  category: Catagory;
+  amount: number;
+  percent: number;
+};

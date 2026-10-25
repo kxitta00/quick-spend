@@ -1,5 +1,5 @@
 export const dom = {
-  //Overview Page
+  //Page1 Overview Page
   //1. Display 
   //1.1Card Hero
   overviewTimeDisplay: document.getElementById('current-date') as HTMLElement,
@@ -38,7 +38,7 @@ export const dom = {
   displaySettings: document.getElementById('view-settings') as HTMLElement,
   displayTitle: document.querySelector('.header-title') as HTMLElement,
 
-  //Transactions Page
+  //Page2 Transactions Page 
   btnPrevMonth: document.getElementById('btn-prev-month') as HTMLButtonElement,
   currentMonthDisplay: document.getElementById('current-month-display') as HTMLElement,
   btnNextMonth: document.getElementById('btn-next-month') as HTMLButtonElement,
@@ -48,4 +48,12 @@ export const dom = {
   //Search Bar
   searchInputPage2: document.getElementById('search-input') as HTMLInputElement,
 
+  //Page3 Reports
+  reportMonthDisplay: document.getElementById('report-month-display') as HTMLElement,
+  reportPrevMonth: document.getElementById('report-prev-month') as HTMLButtonElement,
+  reportNextMonth: document.getElementById('report-next-month') as HTMLButtonElement,
+  statMonthExpense: document.getElementById('report-month-expense') as HTMLElement,
+  statDailyExpense: document.getElementById('report-daily-average') as HTMLElement,
+  reportBarChart: document.getElementById('report-bar-chart') as HTMLElement,
+  reportCategoryList: document.getElementById('report-category-list') as HTMLElement,
 }
