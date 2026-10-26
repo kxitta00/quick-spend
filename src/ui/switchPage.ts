@@ -1,6 +1,7 @@
 import { dom } from "./domElements";
 import { type ViewType } from "../types";
 
+
 export function switchPage(viewtype: ViewType): void {
   document.querySelectorAll<HTMLElement>('.view-section').forEach((item) => item.classList.remove('active'));
   if (viewtype === 'view-overview') {
@@ -17,3 +18,4 @@ export function switchPage(viewtype: ViewType): void {
     dom.displayTitle.textContent = 'ตั้งค่า'
   }
 }
+

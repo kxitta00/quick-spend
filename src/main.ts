@@ -108,12 +108,13 @@ dom.form.addEventListener('submit', (e) => {
 
 
 //nav
+
 dom.navButtons.addEventListener('click', (event) => {
   const navBtn = (event.target as HTMLElement).closest('.nav-item') as HTMLButtonElement | null;
   if (!navBtn) return;
   dom.navButtons.querySelectorAll('.nav-item').forEach((b) => b.classList.remove('active'))
   navBtn.classList.add('active')
-  let diaplayType = navBtn.dataset.view;
+  let diaplayType = navBtn.dataset.view as ViewType;
   if (!diaplayType) return;
   switchPage(diaplayType as ViewType)
 })
@@ -166,6 +167,7 @@ dom.reportNextMonth.addEventListener('click', () => {
   dom.reportMonthDisplay.textContent = `${formatThaiMonthYear(currentSelectedMonth)}`
   updateReportsView(currentSelectedMonth)
 })
+
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
 updateReportsView(currentSelectedMonth)

@@ -733,6 +733,8 @@ main {
 }
 
 /* 10. Page 4: Settings View */
+
+/* 10.1 Base Card & Elements */
 .setting-card {
   display: flex;
   flex-direction: column;
@@ -742,12 +744,42 @@ main {
   padding: 16px;
 }
 
-.setting-card-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-primary);
+.setting-item-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
+.setting-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.setting-item-title {
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 500;
+  margin: 4px 0 2px 0;
+}
+
+.setting-item-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.setting-divider {
+  opacity: 0.2;
+  height: 1px;
+  width: 100%;
+  background-color: var(--text-secondary);
+}
+
+/* 10.2 Budget Setting Form */
 .setting-input-row {
   display: flex;
   justify-content: space-between;
@@ -778,7 +810,6 @@ main {
   background-color: transparent;
   font-size: 20px;
   font-weight: bold;
-
 }
 
 .setting-input::placeholder {
@@ -804,42 +835,7 @@ main {
   color: var(--text-secondary);
 }
 
-.setting-item-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-
-}
-
-.setting-item-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.setting-item-title {
-  color: var(--text-primary);
-  font-size: 15px;
-  font-weight: 500;
-  margin: 4px 0 2px 0;
-}
-
-.setting-item-desc {
-  font-size: 12px;
-  color: var(--text-secondary);
-  margin-bottom: 2px;
-}
-
-.setting-divider {
-  opacity: 0.2;
-  height: 1px;
-  width: 100%;
-  background-color: var(--text-secondary);
-}
-
+/* 10.3 Display & Dark Mode Toggle */
 .toggle-switch {
   width: 48px;
   height: 28px;
@@ -871,6 +867,7 @@ main {
   transform: translateX(20px);
 }
 
+/* 10.4 Data Management Controls */
 .btn-export {
   display: flex;
   justify-content: center;
@@ -927,4 +924,13 @@ main {
   color: var(--text-inverse);
   font-size: 14px;
   font-weight: 600;
+}
+
+.credit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+  gap: 4px;
 }
