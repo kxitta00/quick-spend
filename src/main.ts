@@ -11,9 +11,8 @@ import { switchPage } from "./ui/switchPage";
 import { updateTransactionsView } from './ui/renderTransactions';
 import { updateReportsView } from './ui/renderReports';
 import { applyTheme } from "./ui/switchTheme";
-
-import { createIcons, icons } from "lucide";
 import { getMonthlyBudget, getTheme, saveMonthlyBudget, saveTheme } from './storage/setting';
+import { createIcons, icons } from "lucide";
 createIcons({ icons });
 
 

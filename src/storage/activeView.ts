@@ -4,7 +4,7 @@ import { type ViewType } from "../types";
 //บันทึก page ที่ผู้ใช้เปิดนะปัจจุบัน
 export function saveActiveView(activeView: ViewType): void {
   try {
-    localStorage.setItem(STORAGE_KEY_ACTIVEVIEW, activeView)
+    sessionStorage.setItem(STORAGE_KEY_ACTIVEVIEW, activeView)
   } catch (error) {
     console.error(`เกิดข้อผิดพลาดเซฟคีย์ "${STORAGE_KEY_ACTIVEVIEW}" ไม่สำเร็จ!`, error);
   }
@@ -13,7 +13,7 @@ export function saveActiveView(activeView: ViewType): void {
 //ดึงข้อมูล page ปัจจุบันที่ผู้ใช้เปิดไว้ไปวาดจอตอนกดรีหน้าเว็บ
 export function getActiveView(): ViewType {
   try {
-    const viewType = localStorage.getItem(STORAGE_KEY_ACTIVEVIEW) as ViewType | null;
+    const viewType = sessionStorage.getItem(STORAGE_KEY_ACTIVEVIEW) as ViewType | null;
     if (viewType) {
       return viewType
     }
