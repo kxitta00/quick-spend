@@ -8,9 +8,9 @@ import { renderCategoryButtons } from "./ui/renderCategories";
 import { formatThaiDate, formatThaiMonthYear, formatThaiTime } from "./utils/formatters";
 import { switchPage } from "./ui/switchPage";
 import { updateTransactionsView } from './ui/renderTransactions';
+import { updateReportsView } from './ui/renderReports';
 
 import { createIcons, icons } from "lucide";
-import { updateReportsView } from './ui/renderReports';
 createIcons({ icons });
 
 

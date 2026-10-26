@@ -731,3 +731,200 @@ main {
   border-radius: var(--radius-full);
   transition: width 0.3s ease;
 }
+
+/* 10. Page 4: Settings View */
+.setting-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--surface-card);
+  gap: 12px;
+  padding: 16px;
+}
+
+.setting-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.setting-input-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.setting-input-wrapper {
+  min-width: 0;
+  flex: 1;
+  outline: 0px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  height: 50px;
+  padding: 0 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-input);
+}
+
+.setting-input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.setting-input::placeholder {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.btn-save {
+  background-color: var(--surface-highlight);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--radius-input);
+  padding: 0 18px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.setting-hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.setting-item-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.setting-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.setting-item-title {
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 500;
+  margin: 4px 0 2px 0;
+}
+
+.setting-item-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.setting-divider {
+  opacity: 0.2;
+  height: 1px;
+  width: 100%;
+  background-color: var(--text-secondary);
+}
+
+.toggle-switch {
+  width: 48px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  border: none;
+  background-color: var(--border-subtle);
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-switch::after {
+  position: absolute;
+  content: '';
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease;
+}
+
+.toggle-switch.active {
+  background-color: var(--text-primary);
+}
+
+.toggle-switch.active::after {
+  transform: translateX(20px);
+}
+
+.btn-export {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  width: 100%;
+  padding: 6px;
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid var(--text-primary);
+  cursor: pointer;
+}
+
+.btn-export svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-primary);
+}
+
+.btn-export-title {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-secondary-sm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 10px 12px;
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid var(--text-primary);
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.btn-danger-sm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 10px 8px;
+  background-color: var(--danger);
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  color: var(--text-inverse);
+  font-size: 14px;
+  font-weight: 600;
+}
