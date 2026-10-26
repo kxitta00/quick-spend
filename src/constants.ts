@@ -19,6 +19,7 @@ export const INCOME_CATEGORIES: Catagory[] = [
 ]
 
 //Key LocalStorage
+export const STORAGE_KEY_ACTIVEVIEW: string = 'quickspend_active_view';
 export const STORAGE_KEY_TRANSACTIONS: string = 'quick_spend_transactions';
 export const DEFAULT_MONTHLY_BUDGET = 6000;
 // STORAGE_KEY_SETTINGS หลังจาก MVP เสร็จ

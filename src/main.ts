@@ -4,6 +4,7 @@ import { renderSummaryCards } from "./ui/renderSummary";
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "./constants";
 import { type Catagory, type Transaction, type ViewType } from "./types";
 import { saveTransactions, getTransactions, deleteTransaction } from "./storage/transactionStorage";
+import { saveActiveView, getActiveView } from "./storage/activeView";
 import { renderCategoryButtons } from "./ui/renderCategories";
 import { formatThaiDate, formatThaiMonthYear, formatThaiTime } from "./utils/formatters";
 import { switchPage } from "./ui/switchPage";
@@ -108,7 +109,6 @@ dom.form.addEventListener('submit', (e) => {
 
 
 //nav
-
 dom.navButtons.addEventListener('click', (event) => {
   const navBtn = (event.target as HTMLElement).closest('.nav-item') as HTMLButtonElement | null;
   if (!navBtn) return;
@@ -117,7 +117,15 @@ dom.navButtons.addEventListener('click', (event) => {
   let diaplayType = navBtn.dataset.view as ViewType;
   if (!diaplayType) return;
   switchPage(diaplayType as ViewType)
+  saveActiveView(diaplayType)
 })
+
+//nav remember page
+const initialView: ViewType = getActiveView()
+dom.navButtons.querySelectorAll<HTMLButtonElement>('.nav-item').forEach((btn) => {
+  btn.classList.toggle('active', btn.dataset.view === initialView)
+})
+
 
 //delete transactionPage2
 dom.transactionsContainer.addEventListener('click', (event) => {
@@ -174,7 +182,7 @@ updateReportsView(currentSelectedMonth)
 updateTransactionsView(currentSelectedMonth)
 dom.displayTitle.textContent = 'ภาพรวม'
 dom.symbol.textContent = "-฿"
-switchPage('view-overview');
+switchPage(initialView);
 dom.formTimeDisplay.textContent = `บันทึกวันและเวลาให้อัตโนมัติ · วันนี้ ${formatThaiTime()}`
 dom.overviewTimeDisplay.textContent = formatThaiDate()
 renderCategoryButtons(EXPENSE_CATEGORIES)
