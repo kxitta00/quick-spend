@@ -1,6 +1,7 @@
 import { STORAGE_KEY_ACTIVEVIEW } from "../constants";
 import { type ViewType } from "../types";
 
+//บันทึก page ที่ผู้ใช้เปิดนะปัจจุบัน
 export function saveActiveView(activeView: ViewType): void {
   try {
     localStorage.setItem(STORAGE_KEY_ACTIVEVIEW, activeView)
@@ -9,6 +10,7 @@ export function saveActiveView(activeView: ViewType): void {
   }
 }
 
+//ดึงข้อมูล page ปัจจุบันที่ผู้ใช้เปิดไว้ไปวาดจอตอนกดรีหน้าเว็บ
 export function getActiveView(): ViewType {
   try {
     const viewType = localStorage.getItem(STORAGE_KEY_ACTIVEVIEW) as ViewType | null;

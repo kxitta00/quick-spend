@@ -56,4 +56,13 @@ export const dom = {
   statDailyExpense: document.getElementById('report-daily-average') as HTMLElement,
   reportBarChart: document.getElementById('report-bar-chart') as HTMLElement,
   reportCategoryList: document.getElementById('report-category-list') as HTMLElement,
+  //Page4 Setting
+  settingBudgetInput: document.getElementById('setting-budget-input') as HTMLInputElement,
+  btnSaveBudget: document.getElementById('btn-save-budget') as HTMLButtonElement,
+  themeStatusText: document.getElementById('theme-status-text') as HTMLElement,
+  themeToggle: document.getElementById('theme-toggle') as HTMLButtonElement,
+  btnExportData: document.getElementById('btn-export-data') as HTMLButtonElement,
+  btnLoadSample: document.getElementById('btn-load-sample') as HTMLButtonElement,
+  btnClearAll: document.getElementById('btn-clear-all') as HTMLButtonElement,
+
 }

@@ -12,6 +12,7 @@ import { updateTransactionsView } from './ui/renderTransactions';
 import { updateReportsView } from './ui/renderReports';
 
 import { createIcons, icons } from "lucide";
+import { getMonthlyBudget, saveMonthlyBudget } from './storage/setting';
 createIcons({ icons });
 
 
@@ -176,8 +177,26 @@ dom.reportNextMonth.addEventListener('click', () => {
   updateReportsView(currentSelectedMonth)
 })
 
+//บันทึกงบประมาณในหน้าตั้งค่า
+dom.btnSaveBudget.addEventListener('click', () => {
+  const budget = Number(dom.settingBudgetInput.value.trim());
+  if (budget <= 0) {
+    alert('ยอดเงินต้องมากกว่า 0 และไม่ติดลบ!!')
+    return
+  }
+  if (isNaN(budget) || !budget) {
+    alert('กรุณากรอกยอดเงิน!!')
+    return
+  }
+  saveMonthlyBudget(Number(budget))
+  renderSummaryCards()
+  dom.settingBudgetInput.value = '';
+  alert('บันทึกงบประมาณสำเร็จ!!')
+  dom.settingBudgetInput.placeholder = String(budget);
+})
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
+dom.settingBudgetInput.placeholder = String(getMonthlyBudget());
 updateReportsView(currentSelectedMonth)
 updateTransactionsView(currentSelectedMonth)
 dom.displayTitle.textContent = 'ภาพรวม'

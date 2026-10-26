@@ -3,7 +3,7 @@ import { getTransactions } from "../storage/transactionStorage"
 import { type Transaction, type ReportTransactions } from "../types";
 import { calculateBalance, calculateTotalIncome, calculateTotalExpense, calculateMonthlyExpense, calculateMonthlyIncome, calculateTodayExpense, calculateTodayCount } from "../logic/calculations";
 import { formatCurrency, formatCurrencyZeroDecimals, formatThaiTime } from "../utils/formatters";
-import { DEFAULT_MONTHLY_BUDGET } from "../constants";
+import { getMonthlyBudget } from "../storage/setting";
 
 //ฟังก์ชัน render การ์ดหลัก 3 ใบ Hero, Card Row
 export function renderSummaryCards(): void {
@@ -18,7 +18,7 @@ export function renderSummaryCards(): void {
     totalTodayCount: calculateTodayCount(rawTrans)
   }
 
-  const monthlyBudget: number = DEFAULT_MONTHLY_BUDGET;
+  const monthlyBudget: number = getMonthlyBudget();
   const percent: number = monthlyBudget > 0 ? Math.round((sumTransactions.totalMonthlyExpense / monthlyBudget) * 100) : 0;
   const remaining = Math.max(0, monthlyBudget - sumTransactions.totalMonthlyExpense);
 
