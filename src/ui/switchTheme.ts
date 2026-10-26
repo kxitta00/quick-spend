@@ -1,5 +1,3 @@
-import { getTheme, saveTheme } from "../storage/setting";
-import { STORAGE_KEY_THEME } from "../constants";
 import { dom } from "../ui/domElements";
 
 //สลับธีม สว่าง / มืด
