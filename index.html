@@ -177,7 +177,61 @@
     </section>
     <!-- PAGE4 -->
     <section class="view-section" id="view-settings">
-
+      <!-- Card-01 -->
+      <div class="card setting-card">
+        <h3 class="card-title">กำหนดงบประมาณรายเดือน</h3>
+        <div class="setting-input-row">
+          <div class="setting-input-wrapper">
+            <span class="currency-symbol">฿</span>
+            <input class="setting-input" id="setting-budget-input" type="number" placeholder="6000" autocomplete="off">
+          </div>
+          <button class="btn-save" id="btn-save-budget" type="button">บันทึก</button>
+        </div>
+        <span class="setting-hint">ใช้คำณวนงบในหน้าภาพรวม</span>
+      </div>
+      <!-- Card-02 -->
+      <div class="card setting-card">
+        <h3 class="card-title">การแสดงผล</h3>
+        <div class="setting-item-row">
+          <div class="setting-item-info">
+            <span class="setting-item-title">โหมดมืด</span>
+            <span class="setting-item-desc" id="theme-status-text">ตอนนี้ใช้โหมดสว่าง</span>
+          </div>
+          <button class="toggle-switch" id="theme-toggle" type="button"></button>
+        </div>
+      </div>
+      <!-- Card-03 -->
+      <div class="card setting-card">
+        <h3 class="card-title">จัดการข้อมูล</h3>
+        <!-- Card-03.1 -->
+        <div class="setting-export-group">
+          <div class="setting-item-info">
+            <span class="setting-item-title">สำรองข้อมูล</span>
+            <span class="setting-item-desc">ดาวโหลดประวัติเป็นไฟล์ JSON</span>
+          </div>
+          <button class="btn-export" id="btn-export-data" type="button"><i data-lucide="arrow-down-to-line"></i><span
+              class="btn-export-title">ส่งออก</span>
+          </button>
+        </div>
+        <div class="setting-divider"></div>
+        <!-- Card-03.2 -->
+        <div class="setting-item-row">
+          <div class="setting-item-info">
+            <span class="setting-item-title">โหลดข้อมูลตัวอย่าง</span>
+            <span class="setting-item-desc">เติมข้อมูลจำลองทั้งเดือน</span>
+          </div>
+          <button class="btn-secondary-sm" id="btn-load-sample" type="button">โหลดข้อมูลตัวอย่าง</button>
+        </div>
+        <div class="setting-divider"></div>
+        <!-- Card-03.3 -->
+        <div class="setting-item-row">
+          <div class="setting-item-info">
+            <span class="setting-item-title">ล้างข้อมูลทั้งหมด</span>
+            <span class="setting-item-desc">ลบข้อมูลทั้งหมดในเครื่องนี้</span>
+          </div>
+          <button class="btn-danger-sm" id="btn-clear-all" type="button">ล้างข้อมูลทั้งหมด</button>
+        </div>
+      </div>
     </section>
   </main>
 
