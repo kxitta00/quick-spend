@@ -29,13 +29,31 @@
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
+[data-theme="dark"],
+body.dark {
+  --bg-app: #0D0D0E;
+  --surface-card: #17171A;
+  --surface-highlight: #FFFFFF;
+  --text-primary: #F9FAFB;
+  --text-secondary: #a3a3a3;
+  --text-inverse: #111827;
+  --border-subtle: #27272A;
+  --border-focus: #FFFFFF;
+  --progress-track: #27272A;
+  --progress-fill: #F9FAFB;
+  --danger: #EF4444;
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html,
 body {
+  color: var(--text-primary);
   font-family: var(--font-family);
   background-color: var(--bg-app);
   max-width: 480px;
@@ -89,6 +107,8 @@ main {
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-card);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .card.card-hero {
@@ -105,6 +125,8 @@ main {
 
 }
 
+
+
 .hero-title,
 .hero-sub {
   font-size: 12px;
@@ -116,7 +138,11 @@ main {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(2, 1fr);
+}
 
+[data-theme="dark"] .card.card-hero .hero-title,
+[data-theme="dark"] .card.card-hero .hero-sub {
+  color: #6B7280;
 }
 
 .card-row .card {
@@ -135,6 +161,7 @@ main {
 }
 
 .budget-title {
+  margin-right: 4px;
   font-size: 13px;
   color: var(--text-secondary);
 }
@@ -242,6 +269,8 @@ main {
   padding: 0 16px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-input);
+  background-color: transparent;
+  color: var(--text-primary);
 }
 
 .note-input::placeholder {
@@ -273,6 +302,7 @@ main {
 }
 
 .category-btn {
+  color: var(--text-secondary);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -288,11 +318,13 @@ main {
 
 .category-title {
   font-size: 12px;
+  color: var(--text-primary);
 }
 
 .category-btn svg {
   width: 20px;
   height: 16px;
+  stroke: var(--text-primary);
 }
 
 .category-btn.active {
@@ -334,7 +366,7 @@ main {
   display: flex;
   padding: 12px 0;
   justify-content: center;
-  background-color: var(--text-inverse);
+  background-color: var(--surface-card);
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -394,7 +426,7 @@ main {
   align-items: center;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
-  background-color: var(--text-inverse);
+  background-color: var(--surface-card);
 }
 
 .month-display {
@@ -417,6 +449,7 @@ main {
   width: 18px;
   height: 18px;
   stroke-width: 2;
+  stroke: var(--text-primary);
 }
 
 .month-btn:active {
@@ -434,8 +467,9 @@ main {
   padding: 0 16px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-input);
-  background-color: var(--text-inverse);
+  background-color: var(--surface-card);
   overflow: hidden;
+
 }
 
 .search-input {
@@ -446,6 +480,7 @@ main {
   min-height: 40px;
   font-size: 14px;
   letter-spacing: 0.5px;
+  color: var(--text-primary);
 }
 
 
@@ -473,7 +508,7 @@ main {
   flex-direction: column;
   gap: 8px;
   padding: 0 16px;
-  background-color: var(--text-inverse);
+  background-color: var(--surface-card);
 }
 
 .group-header {
@@ -511,12 +546,14 @@ main {
   height: 40px;
   border-radius: 12px;
   background-color: var(--progress-track);
+  color: var(--text-primary);
 }
 
 .category-icon-box svg {
   width: 18px;
   height: 18px;
   stroke-width: 2;
+  stroke: var(--text-primary);
 }
 
 .item-note-time {
@@ -744,6 +781,11 @@ main {
   padding: 16px;
 }
 
+.setting-card-title {
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
 .setting-item-row {
   display: flex;
   flex-direction: row;
@@ -810,6 +852,7 @@ main {
   background-color: transparent;
   font-size: 20px;
   font-weight: bold;
+  color: var(--text-primary);
 }
 
 .setting-input::placeholder {
@@ -854,7 +897,7 @@ main {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  background-color: var(--surface-card);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s ease;
 }
@@ -865,6 +908,18 @@ main {
 
 .toggle-switch.active::after {
   transform: translateX(20px);
+}
+
+[data-theme="dark"] .toggle-switch.active {
+  background-color: #000000;
+}
+
+[data-theme="dark"] .toggle-switch.active::after {
+  background-color: #FFFFFF;
+}
+
+[data-theme="dark"] .toggle-switch.active::after {
+  background-color: #FFFFFF;
 }
 
 /* 10.4 Data Management Controls */
@@ -921,7 +976,7 @@ main {
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  color: var(--text-inverse);
+  color: #FFFFFF;
   font-size: 14px;
   font-weight: 600;
 }

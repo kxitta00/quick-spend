@@ -17,11 +17,6 @@ export type Catagory = {
 };
 
 
-/** type การตั้งค่าระบบ */
-export type Settings = {
-  monthlyBudget: number;
-  theme: 'light' | 'dark'
-}
 
 /** type สรุปยอดและรายการเงินต่างๆ */
 export type ReportTransactions = {

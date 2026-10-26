@@ -22,5 +22,5 @@ export const DEFAULT_MONTHLY_BUDGET: number = 6000;
 //Key LocalStorage
 export const STORAGE_KEY_ACTIVEVIEW: string = 'quickspend_active_view';
 export const STORAGE_KEY_TRANSACTIONS: string = 'quick_spend_transactions';
-export const SETTING_MONTHLY_BUDGET: string = 'quick_spend_budget_set';
-// STORAGE_KEY_SETTINGS หลังจาก MVP เสร็จ
+export const STORAGE_KEY_MONTHLYBUDGET: string = 'quick_spend_budget_set';
+export const STORAGE_KEY_THEME: string = 'quickspend_theme';

@@ -10,9 +10,10 @@ import { formatThaiDate, formatThaiMonthYear, formatThaiTime } from "./utils/for
 import { switchPage } from "./ui/switchPage";
 import { updateTransactionsView } from './ui/renderTransactions';
 import { updateReportsView } from './ui/renderReports';
+import { applyTheme } from "./ui/switchTheme";
 
 import { createIcons, icons } from "lucide";
-import { getMonthlyBudget, saveMonthlyBudget } from './storage/setting';
+import { getMonthlyBudget, getTheme, saveMonthlyBudget, saveTheme } from './storage/setting';
 createIcons({ icons });
 
 
@@ -180,12 +181,9 @@ dom.reportNextMonth.addEventListener('click', () => {
 //บันทึกงบประมาณในหน้าตั้งค่า
 dom.btnSaveBudget.addEventListener('click', () => {
   const budget = Number(dom.settingBudgetInput.value.trim());
-  if (budget <= 0) {
-    alert('ยอดเงินต้องมากกว่า 0 และไม่ติดลบ!!')
-    return
-  }
-  if (isNaN(budget) || !budget) {
-    alert('กรุณากรอกยอดเงิน!!')
+
+  if (isNaN(budget) || !budget || budget <= 0) {
+    alert('ยอดเงินไม่ถูกต้อง!!')
     return
   }
   saveMonthlyBudget(Number(budget))
@@ -194,8 +192,21 @@ dom.btnSaveBudget.addEventListener('click', () => {
   alert('บันทึกงบประมาณสำเร็จ!!')
   dom.settingBudgetInput.placeholder = String(budget);
 })
+//dark mode 
+const initialTheme: string = getTheme()
+dom.themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (!isDark) {
+    applyTheme('dark')
+    saveTheme('dark');
+  } else {
+    applyTheme('light')
+    saveTheme('light');
+  }
+})
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
+applyTheme(initialTheme as 'light' | 'dark')
 dom.settingBudgetInput.placeholder = String(getMonthlyBudget());
 updateReportsView(currentSelectedMonth)
 updateTransactionsView(currentSelectedMonth)
