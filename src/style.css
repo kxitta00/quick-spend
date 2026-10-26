@@ -328,8 +328,15 @@ main {
 }
 
 .category-btn.active {
-  color: var(--text-inverse);
   background-color: var(--border-focus);
+}
+
+.category-btn.active .category-title {
+  color: var(--text-inverse);
+}
+
+.category-btn.active svg {
+  stroke: var(--text-inverse);
 }
 
 .submit-btn {

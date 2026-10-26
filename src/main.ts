@@ -119,6 +119,8 @@ dom.navButtons.addEventListener('click', (event) => {
   if (!diaplayType) return;
   switchPage(diaplayType as ViewType)
   saveActiveView(diaplayType)
+  selectedCategoryId = '';
+  dom.categoryGrid.querySelectorAll('.category-btn').forEach((b) => b.classList.remove('active'))
 })
 
 //nav remember page
