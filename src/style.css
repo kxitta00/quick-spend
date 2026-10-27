@@ -968,6 +968,7 @@ main {
 }
 
 .btn-secondary-sm {
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1023,8 +1024,9 @@ main {
   backdrop-filter: blur(1px);
 }
 
+/* Card 01*/
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 #modal-view-welcome {
@@ -1175,4 +1177,108 @@ main {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+/* Card 02*/
+#modal-view-install {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.modal-view-install-btn-back-to-welcome {
+  color: var(--text-primary);
+  display: flex;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-view-install-title {
+  font-size: 20px;
+}
+
+.modal-view-install-header-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.modal-view-install-btn-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 3px;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.modal-view-install-btn-toggle button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  border-radius: 11px;
+  padding: 12px;
+  flex: 1;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.modal-view-install-btn-toggle button.active {
+  color: var(--text-inverse);
+  background-color: var(--border-focus);
+}
+
+.modal-view-install-desc-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.modal-view-install-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-view-install-number-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--text-primary);
+}
+
+.modal-view-install-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.card-install-three {
+  margin-bottom: 14px;
+}
+
+.footnote {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-bottom: 14px;
 }

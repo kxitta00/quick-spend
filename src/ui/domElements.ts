@@ -66,4 +66,15 @@ export const dom = {
   btnClearAll: document.getElementById('btn-clear-all') as HTMLButtonElement,
   //Advice popup
   btnAdvice: document.getElementById('qspend-advice-btn') as HTMLButtonElement,
+  onBoardingModalEl: document.getElementById('onboarding-modal') as HTMLElement,
+  modalViewWelcomeEl: document.getElementById('modal-view-welcome') as HTMLElement,
+  modalViewInstallEl: document.getElementById('modal-view-install') as HTMLElement,
+  btnToInstall: document.getElementById('modal-view-btn-to-install') as HTMLButtonElement,
+  btnToWelcome: document.getElementById('btn-back-to-welcome') as HTMLButtonElement,
+  btnTabAndroid: document.getElementById('tab-android') as HTMLButtonElement,
+  btnTabIos: document.getElementById('tab-ios') as HTMLButtonElement,
+  stepsAndroid: document.getElementById('install-steps-android') as HTMLButtonElement,
+  stepsIos: document.getElementById('install-steps-ios') as HTMLButtonElement,
+  btnCloseOnboarding: document.getElementById('btn-close-onboarding') as HTMLButtonElement,
+  btnCloseInstall: document.getElementById('btn-close-install') as HTMLButtonElement,
 }
