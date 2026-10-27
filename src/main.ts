@@ -257,7 +257,10 @@ dom.btnLoadSample.addEventListener('click', () => {
 //popup
 initOnboardingModal()
 
-
+//PWA Offline
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
 applyTheme(initialTheme as 'light' | 'dark')
