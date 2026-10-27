@@ -64,5 +64,6 @@ export const dom = {
   btnExportData: document.getElementById('btn-export-data') as HTMLButtonElement,
   btnLoadSample: document.getElementById('btn-load-sample') as HTMLButtonElement,
   btnClearAll: document.getElementById('btn-clear-all') as HTMLButtonElement,
-
+  //Advice popup
+  btnAdvice: document.getElementById('qspend-advice-btn') as HTMLButtonElement,
 }

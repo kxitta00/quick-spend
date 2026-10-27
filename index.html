@@ -192,13 +192,29 @@
       </div>
       <!-- Card-02 -->
       <div class="card setting-card">
-        <h3 class="setting-card-title">การแสดงผล</h3>
+        <h3 class="setting-card-title">ทั่วไป</h3>
         <div class="setting-item-row">
           <div class="setting-item-info">
             <span class="setting-item-title">โหมดมืด</span>
             <span class="setting-item-desc" id="theme-status-text">ตอนนี้ใช้โหมดสว่าง</span>
           </div>
           <button class="toggle-switch" id="theme-toggle" type="button"></button>
+        </div>
+        <!-- advice-btn -->
+        <div class="setting-item-row">
+          <div class="setting-item-info">
+            <span class="setting-item-title">คำแนะนำการใช้งาน</span>
+            <span class="setting-item-desc">ดูข้อความต้อนรับและวิธีติดตั้ง</span>
+          </div>
+          <button class="btn-secondary-sm" id="qspend-advice-btn" type="button">ดูคำแนะนำ</button>
+        </div>
+        <div class="setting-item-row">
+          <div class="setting-item-info">
+            <span class="setting-item-title">ติดต่อ ig: kxittamet.r
+            </span>
+            <span class="setting-item-desc">สามารถติดต่อพูดคุยกับผมได้ที่</span>
+          </div>
+          <a class="btn-secondary-sm" href="https://www.instagram.com/kxittamet.r/" target="_blank">Instagram</a>
         </div>
       </div>
       <!-- Card-03 -->
@@ -258,6 +274,94 @@
   </nav>
 
 
+  <!-- Advice -->
+  <div class="modal-overlay" id="onboarding-modal">
+    <!-- Card -->
+    <div class="modal-card">
+      <!-- Card-01 -->
+      <div id="modal-view-welcome">
+        <div class="modal-view-header">
+          <div class="view-header-right">
+            <img src="/favicon.png" alt="QSpend Logo" class="brand-logo-img">
+            <span class="view-header-title">QSpend</span>
+          </div>
+          <div class="view-header-left">
+            <span class="view-header-version">v1.0.0</span>
+          </div>
+        </div>
+        <h2 class="modal-view-welcome-title">ยินดีต้อนรับสู่ QSpend</h2>
+        <p class="modal-view-desc">
+          เว็บแอปจดรายรับ/จ่ายที่ Kxitta พัฒนาไว้ใช้เองและแบ่งให้เพื่อน ๆ ที่สนใจลองใช้ ทำด้วยภาษา HTML, CSS และ
+          TypeScript
+        </p>
+        <div class="modal-view-row">
+          <div class="modal-view-card card-view-one">
+            <div class="modal-view-icon"><i data-lucide="zap"></i></div>
+            <span class="modal-view-card-desc">จดเสร็จในไม่กี่วินาที พร้อมสรุปยอดและงบให้อัตโนมัติ</span>
+          </div>
+          <div class="modal-view-card card-view-two">
+            <div class="modal-view-icon"><i data-lucide="lock"></i></div>
+            <span class="modal-view-card-desc">ข้อมูลเก็บในเครื่องคุณเท่านั้น</span>
+          </div>
+          <div class="modal-view-card card-view-two">
+            <div class="modal-view-icon"><i data-lucide="flask-conical"></i></div>
+            <span class="modal-view-card-desc">อยากลองก่อน กด “โหลดข้อมูลตัวอย่าง” ที่หน้าตั้งค่าได้</span>
+          </div>
+        </div>
+        <div class="modal-view-alert">
+          <div class="modal-view-icon-alert"><i data-lucide="alert-triangle"></i></div>
+          <span class="modal-view-alert-desc">ถ้าล้างข้อมูลเบราว์เซอร์ ประวัติจะหาย กดสำรองข้อมูลเป็นไฟล์ JSON
+            ได้ที่หน้าตั้งค่า
+          </span>
+        </div>
+        <button class="modal-view-btn-close-onboarding" id="btn-close-onboarding">เข้าใจแล้ว เริ่มบันทึกกัน!</button>
+        <button id="modal-view-btn-to-install">วิธีติดตั้งบนมือถือ &gt;</button>
+      </div>
+      <!-- Card-02 -->
+      <div id="modal-view-install" class="hidden">
+        <button class="modal-view-install-btn-back-to-welcome" id="btn-back-to-welcome">
+          &lt; กลับ </button>
+        <h2 class="modal-view-install-title">ติดตั้งบนมือถือ</h2>
+        <p class="modal-view-install-desc">เปิดใช้เต็มจอได้เหมือนแอพจริงในมือถือ</p>
+        <div class="modal-view-install-btn-toggle">
+          <button id="tab-android" class="active" type="button">Android (Chrome)</button>
+          <button id="tab-ios" type="button">iPhone
+            (Safari)</button>
+        </div>
+        <div class="modal-view-install-desc-card active" id="install-steps-android">
+          <div class="modal-view-install-card card-install-one">
+            <div class="modal-view-install-number-icon">1</div>
+            <div class="modal-view-install-desc">แตะปุ่มจุดสามจุด (⋮) ที่มุมขวาบน</div>
+          </div>
+          <div class="modal-view-install-card card-install-two">
+            <div class="modal-view-install-number-icon">2</div>
+            <div class="modal-view-install-desc">เลือก “ติดตั้งแอป” หรือ “เพิ่มลงในหน้าจอหลัก”</div>
+          </div>
+          <div class="modal-view-install-card card-install-three">
+            <div class="modal-view-install-number-icon">3</div>
+            <div class="modal-view-install-desc">กดยืนยัน แล้วเปิดจากไอคอนบนหน้าจอ</div>
+          </div>
+        </div>
+        <div class="modal-view-install-desc-card hidden" id="install-steps-ios">
+          <div class="modal-view-install-card card-install-one">
+            <div class="modal-view-install-number-icon">1</div>
+            <div class="modal-view-install-desc">แตะปุ่มแชร์ (สี่เหลี่ยมลูกศรชี้ขึ้น) ที่แถบด้านล่าง</div>
+          </div>
+          <div class="modal-view-install-card card-install-two">
+            <div class="modal-view-install-number-icon">2</div>
+            <div class="modal-view-install-desc">เลือก “เพิ่มไปยังหน้าจอหลัก”</div>
+          </div>
+          <div class="modal-view-install-card card-install-three">
+            <div class="modal-view-install-number-icon">3</div>
+            <div class="modal-view-install-desc">แตะ “เพิ่ม” ที่มุมขวาบน</div>
+          </div>
+        </div>
+        <p class="footnote">ชื่อปุ่มอาจต่างกันเล็กน้อยตามรุ่นของเครื่อง</p>
+        <button class="modal-view-btn-close-onboarding" id="btn-close-install" type="button">เข้าใจแล้ว
+          เริ่มบันทึกกัน!</button>
+      </div>
+    </div>
+  </div>
   <script type="module" src="/src/main.ts"></script>
 </body>
 
