@@ -24,3 +24,7 @@ export const STORAGE_KEY_ACTIVEVIEW: string = 'quickspend_active_view';
 export const STORAGE_KEY_TRANSACTIONS: string = 'quick_spend_transactions';
 export const STORAGE_KEY_MONTHLYBUDGET: string = 'quick_spend_budget_set';
 export const STORAGE_KEY_THEME: string = 'quickspend_theme';
+
+//version
+export const APP_VERSION: string = '1.0.0';
+export const APP_NAME: string = 'QSpend';

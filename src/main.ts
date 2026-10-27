@@ -1,7 +1,7 @@
 import './style.css'
 import { dom } from "./ui/domElements";
 import { renderSummaryCards } from "./ui/renderSummary";
-import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "./constants";
+import { APP_NAME, APP_VERSION, EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "./constants";
 import { type Catagory, type Transaction, type ViewType } from "./types";
 import { saveTransactions, getTransactions, deleteTransaction } from "./storage/transactionStorage";
 import { saveActiveView, getActiveView } from "./storage/activeView";
@@ -204,6 +204,32 @@ dom.themeToggle.addEventListener('click', () => {
     applyTheme('light')
     saveTheme('light');
   }
+})
+
+
+//export json
+dom.btnExportData.addEventListener('click', () => {
+  const raw: Transaction[] = getTransactions();
+  if (raw.length === 0 || !raw) {
+    alert('ไม่พบประวัติการบันทึกรายการ');
+    return
+  }
+
+  if (!confirm('ต้องการดาวโหลดข้อมูล?')) return;
+  const exportPayload = {
+    version: APP_VERSION,
+    exportedAt: new Date().toISOString(),
+    appName: APP_NAME,
+    transactions: raw
+  };
+  const data = JSON.stringify(exportPayload, null, 2)
+  const blob = new Blob([data], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a');
+  a.href = url
+  a.download = `${APP_NAME}V1.0.0-backup.json`
+  a.click()
+  URL.revokeObjectURL(url)
 })
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
