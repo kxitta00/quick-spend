@@ -114,7 +114,7 @@ main {
 .card.card-hero {
   display: flex;
   flex-direction: column;
-  padding: 18px;
+  padding: 16px;
   gap: 6px;
   background-color: var(--surface-highlight);
 }
@@ -149,7 +149,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  padding: 16px;
+  padding: 12px;
   background-color: var(--surface-card);
 
 }
@@ -181,7 +181,7 @@ main {
 
 .budget-spend {
   line-height: 1;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: var(--text-primary);
   white-space: nowrap;
@@ -215,7 +215,7 @@ main {
 }
 
 .today-amount {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   margin: 8px 0px 4px;
 }
@@ -539,6 +539,8 @@ main {
 }
 
 .transaction-item-left {
+  flex: 1;
+  min-width: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -564,6 +566,8 @@ main {
 }
 
 .item-note-time {
+  min-width: 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -571,9 +575,14 @@ main {
 }
 
 .item-title {
-  font-size: 14px;
+  display: block;
+  max-width: 100%;
+  font-size: 12px;
   letter-spacing: 0.5px;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .item-time {
@@ -585,12 +594,14 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: 12px;
 }
 
 .item-amount {
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
 }
 

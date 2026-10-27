@@ -1,7 +1,7 @@
 import { groupTransactionsByDate } from "../logic/transactionsGrouping";
 import { getTransactions } from "../storage/transactionStorage";
 import type { DateGroup, Transaction } from "../types";
-import { formatCurrencyZeroDecimals, formatThaiTimeWithDate, formatThaiMonthYear } from "../utils/formatters";
+import { formatCurrencyZeroDecimals, formatThaiTimeWithDate, formatThaiMonthYear, formatCurrency } from "../utils/formatters";
 import { dom } from "./domElements";
 import { createIcons, icons } from "lucide";
 
@@ -27,7 +27,7 @@ export function renderTransactions(transactions?: Transaction[]): void {
         </div>
     `
     for (const list of item.items) {
-      const typeList = list.type === 'expense' ? `-${formatCurrencyZeroDecimals(list.amount)}` : `+${formatCurrencyZeroDecimals(list.amount)}`;
+      const typeList = list.type === 'expense' ? `-${formatCurrency(list.amount)}` : `+${formatCurrency(list.amount)}`;
       html += `
   <div class="transaction-item">
           <div class="transaction-item-left">

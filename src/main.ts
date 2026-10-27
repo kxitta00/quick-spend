@@ -91,7 +91,7 @@ dom.form.addEventListener('submit', (e) => {
   const newTransaction: Transaction = {
     id: crypto.randomUUID(),
     type: selecTogCate,
-    amount: Number(rawNumber),
+    amount: parseFloat(Number(rawNumber).toFixed(2)),
     category: target,
     note: rawNote.trim(),
     createdAt: now

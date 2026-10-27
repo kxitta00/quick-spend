@@ -24,7 +24,7 @@ export function renderSummaryCards(): void {
 
   //Hero Card
   dom.balanceAmount.textContent = formatCurrency(sumTransactions.totalBalance);
-  dom.balanceSubtitle.textContent = `รายรับ ${formatCurrencyZeroDecimals(sumTransactions.totalIncome)} - รายจ่าย ${formatCurrencyZeroDecimals(sumTransactions.totalExpense)} `
+  dom.balanceSubtitle.textContent = `รายรับ ${formatCurrency(sumTransactions.totalIncome)} - รายจ่าย ${formatCurrency(sumTransactions.totalExpense)} `
 
   //Row Card 1
   dom.budgetPercent.textContent = `${percent}%`
