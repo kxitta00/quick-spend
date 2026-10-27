@@ -14,6 +14,7 @@ import { applyTheme } from "./ui/switchTheme";
 import { getMonthlyBudget, getTheme, saveMonthlyBudget, saveTheme } from './storage/setting';
 import { createIcons, icons } from "lucide";
 import { getSampleTransactions } from './data/sampleData';
+import { initOnboardingModal } from './ui/onboardingModal';
 createIcons({ icons });
 
 
@@ -252,6 +253,11 @@ dom.btnLoadSample.addEventListener('click', () => {
   updateReportsView(currentSelectedMonth)
   alert('โหลดข้อมูลตัวอย่างสำเร็จ!')
 })
+
+//popup
+initOnboardingModal()
+
+
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
 applyTheme(initialTheme as 'light' | 'dark')
