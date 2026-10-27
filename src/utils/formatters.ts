@@ -2,13 +2,10 @@
 
 //แปลงตัวเลขดิบเป็นข้อความเงิน 18260 to ฿18,260.00  
 export function formatCurrency(amount: number): string {
-  return (new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB', minimumFractionDigits: 2 })).format(amount);
+  const hasDecimals = Number(amount.toFixed(2)) % 1 !== 0;
+  return (new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB', minimumFractionDigits: hasDecimals ? 2 : 0, maximumFractionDigits: 2 })).format(amount);
 }
 
-//แปลงตัวเลขดิบเป็นข้อความเงิน 18260 to ฿18,260 
-export function formatCurrencyZeroDecimals(amount: number): string {
-  return (new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB', minimumFractionDigits: 0, maximumFractionDigits: 0 })).format(amount);
-}
 
 //แปลงวันที่แบบไทย
 export function formatThaiDate(): string {

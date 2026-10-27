@@ -1,6 +1,6 @@
 import { calculateDailyAverage, calculateLast3MonthsExpense, calculateCategoryBreakdown } from "../logic/reportCalculations";
 import { dom } from "../ui/domElements";
-import { formatCurrencyZeroDecimals, formatThaiMonthYear } from "..//utils/formatters";
+import { formatCurrency, formatThaiMonthYear } from "..//utils/formatters";
 import { getTransactions } from "../storage/transactionStorage";
 import type { CategoryReportData, MonthlyBarData, Transaction } from "../types";
 import { calculateTotalExpense } from "../logic/calculations";
@@ -20,8 +20,8 @@ export function renderReports(allTransactions: Transaction[], selectedMonth: Dat
   const monthExpense = calculateTotalExpense(currentList)
 
   // card-row
-  dom.statMonthExpense.textContent = `${formatCurrencyZeroDecimals(monthExpense)}`
-  dom.statDailyExpense.textContent = `${formatCurrencyZeroDecimals(calculateDailyAverage(currentList))}`
+  dom.statMonthExpense.textContent = `${formatCurrency(monthExpense)}`
+  dom.statDailyExpense.textContent = `${formatCurrency(calculateDailyAverage(currentList))}`
 
   //chart-bar
   let htmlChart: string = '';
@@ -30,7 +30,7 @@ export function renderReports(allTransactions: Transaction[], selectedMonth: Dat
     const pillarHeight = Math.round((item.percent / 100) * 140);
 
     htmlChart += `<div class="bar-col">
-  <div class="bar-value">${formatCurrencyZeroDecimals(item.amount)}</div>
+  <div class="bar-value">${formatCurrency(item.amount)}</div>
   <div class="bar-pillar ${item.isActive ? 'active' : ''}" style="height: ${pillarHeight}px;"></div>
   <div class="bar-label">${item.monthLabel}</div>
 </div>`;
@@ -51,7 +51,7 @@ export function renderReports(allTransactions: Transaction[], selectedMonth: Dat
                 <span class="stat-info-title">${item.category.name}</span>
               </div>
               <div class="stat-info-right">
-                <span class="stat-info-amount">${formatCurrencyZeroDecimals(item.amount)}</span>
+                <span class="stat-info-amount">${formatCurrency(item.amount)}</span>
                 <span class="stat-info-percent">${item.percent}%</span>
               </div>
             </div>

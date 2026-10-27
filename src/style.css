@@ -176,12 +176,13 @@ main {
   display: flex;
   align-items: baseline;
   margin: 8px 0px 4px;
-  gap: 6px;
+  gap: 4px;
+  flex-wrap: wrap;
 }
 
 .budget-spend {
   line-height: 1;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   color: var(--text-primary);
   white-space: nowrap;
@@ -215,7 +216,7 @@ main {
 }
 
 .today-amount {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   margin: 8px 0px 4px;
 }
@@ -641,8 +642,9 @@ main {
 }
 
 .stat-amount {
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 /* 9.2 Monthly Expense Bar Chart */

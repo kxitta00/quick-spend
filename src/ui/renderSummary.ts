@@ -2,7 +2,7 @@ import { dom } from "./domElements";
 import { getTransactions } from "../storage/transactionStorage"
 import { type Transaction, type ReportTransactions } from "../types";
 import { calculateBalance, calculateTotalIncome, calculateTotalExpense, calculateMonthlyExpense, calculateMonthlyIncome, calculateTodayExpense, calculateTodayCount } from "../logic/calculations";
-import { formatCurrency, formatCurrencyZeroDecimals, formatThaiTime } from "../utils/formatters";
+import { formatCurrency, formatThaiTime } from "../utils/formatters";
 import { getMonthlyBudget } from "../storage/setting";
 
 //ฟังก์ชัน render การ์ดหลัก 3 ใบ Hero, Card Row
@@ -28,10 +28,10 @@ export function renderSummaryCards(): void {
 
   //Row Card 1
   dom.budgetPercent.textContent = `${percent}%`
-  dom.monthlyExpense.textContent = `${formatCurrencyZeroDecimals(sumTransactions.totalMonthlyExpense)}`;
-  dom.monthlyBudget.textContent = `/${formatCurrencyZeroDecimals(monthlyBudget)}`;
+  dom.monthlyExpense.textContent = `${formatCurrency(sumTransactions.totalMonthlyExpense)}`;
+  dom.monthlyBudget.textContent = `/${formatCurrency(monthlyBudget)}`;
   dom.budgetProgressFill.style.width = `${Math.min(100, percent)}%`
-  dom.budgetRemaining.textContent = `เหลือ ${formatCurrencyZeroDecimals(remaining)}`
+  dom.budgetRemaining.textContent = `เหลือ ${formatCurrency(remaining)}`
 
   //Row Card 2
   dom.todayExpense.textContent = `-${formatCurrency(sumTransactions.totalTodayExpense)}`
