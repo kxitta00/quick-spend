@@ -2,6 +2,7 @@ import { type Transaction } from "../types";
 
 function createSampleDate(monthsAgo: number, day: number, hour: number = 12, minute: number = 0): string {
   const d = new Date();
+  d.setDate(1)
   d.setMonth(d.getMonth() - monthsAgo);
   d.setDate(day);
   d.setHours(hour, minute, 0, 0);
