@@ -24,7 +24,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-cur-1",
       type: "expense",
-      amount: 45,
+      amount: 45.50,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ชานมไข่มุกหวานน้อย",
       createdAt: createSampleDate(0, 27, 16, 30),
@@ -40,7 +40,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-cur-3",
       type: "expense",
-      amount: 65,
+      amount: 65.25,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "บะหมี่ต้มยำพิเศษ",
       createdAt: createSampleDate(0, 27, 8, 30),
@@ -65,7 +65,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-cur-6",
       type: "expense",
-      amount: 35,
+      amount: 35.50,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "แซนด์วิช 7-11 มื้อเช้า",
       createdAt: createSampleDate(0, 26, 8, 30),
@@ -90,7 +90,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-cur-9",
       type: "expense",
-      amount: 40,
+      amount: 42.50,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ขนมปังปิ้งเนยนม",
       createdAt: createSampleDate(0, 25, 17, 30),
@@ -124,7 +124,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-cur-13",
       type: "expense",
-      amount: 45,
+      amount: 46.50,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ต้มมาม่าใส่ไข่ไส้กรอกรอบดึก",
       createdAt: createSampleDate(0, 23, 21, 30),
@@ -158,7 +158,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-cur-17",
       type: "expense",
-      amount: 399,
+      amount: 399.25,
       category: { id: "bill", name: "บิล", icon: "receipt" },
       note: "ค่าเน็ตมือถือรายเดือน",
       createdAt: createSampleDate(0, 20, 10, 0),
@@ -182,7 +182,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-cur-20",
       type: "expense",
-      amount: 88,
+      amount: 88.50,
       category: { id: "transport", name: "เดินทาง", icon: "car" },
       note: "BTS ไปทำธุระ",
       createdAt: createSampleDate(0, 18, 13, 15),
@@ -214,7 +214,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-cur-24",
       type: "expense",
-      amount: 65,
+      amount: 65.75,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "กาแฟสดปั่นแก้ง่วง",
       createdAt: createSampleDate(0, 12, 14, 0),
@@ -336,7 +336,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-prev1-3",
       type: "expense",
-      amount: 105,
+      amount: 105.50,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ข้าวมันไก่ + บะหมี่เกี๊ยว",
       createdAt: createSampleDate(1, 26, 18, 0),
@@ -360,7 +360,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-prev1-6",
       type: "expense",
-      amount: 95,
+      amount: 95.25,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ข้าวกะเพราหมูสับ + ขนม 7-11",
       createdAt: createSampleDate(1, 23, 12, 30),
@@ -392,7 +392,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-prev1-10",
       type: "expense",
-      amount: 399,
+      amount: 399.75,
       category: { id: "bill", name: "บิล", icon: "receipt" },
       note: "ค่าเน็ตมือถือ",
       createdAt: createSampleDate(1, 15, 10, 0),
@@ -424,7 +424,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-prev1-14",
       type: "expense",
-      amount: 80,
+      amount: 80.50,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ข้าวผัดต้มยำทะเล",
       createdAt: createSampleDate(1, 2, 12, 30),
@@ -450,7 +450,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-prev2-2",
       type: "expense",
-      amount: 105,
+      amount: 105.50,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ข้าวคลุกกะปิ + นมปั่น",
       createdAt: createSampleDate(2, 27, 12, 30),
@@ -466,7 +466,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-prev2-4",
       type: "expense",
-      amount: 85,
+      amount: 85.25,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ข้าวยำไก่แซ่บ + น้ำอัดลม",
       createdAt: createSampleDate(2, 25, 16, 0),
@@ -506,7 +506,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-prev2-9",
       type: "expense",
-      amount: 399,
+      amount: 399.75,
       category: { id: "bill", name: "บิล", icon: "receipt" },
       note: "ค่าเน็ตมือถือ",
       createdAt: createSampleDate(2, 18, 10, 0),
@@ -530,7 +530,7 @@ export function getSampleTransactions(): Transaction[] {
     {
       id: "sample-prev2-12",
       type: "expense",
-      amount: 80,
+      amount: 80.50,
       category: { id: "food", name: "อาหาร", icon: "utensils" },
       note: "ข้าวไข่เจียว + ชานม",
       createdAt: createSampleDate(2, 10, 12, 30),
