@@ -13,6 +13,7 @@ import { updateReportsView } from './ui/renderReports';
 import { applyTheme } from "./ui/switchTheme";
 import { getMonthlyBudget, getTheme, saveMonthlyBudget, saveTheme } from './storage/setting';
 import { createIcons, icons } from "lucide";
+import { getSampleTransactions } from './data/sampleData';
 createIcons({ icons });
 
 
@@ -230,6 +231,26 @@ dom.btnExportData.addEventListener('click', () => {
   a.download = `${APP_NAME}V1.0.0-backup.json`
   a.click()
   URL.revokeObjectURL(url)
+})
+
+//clear btn
+dom.btnClearAll.addEventListener('click', () => {
+  if (!confirm('คุณแน่ใจหรือไม่ว่าต้องการล้างข้อมูลทั้งหมด? ข้อมูลจะหายถาวรไม่สามารถกู้คืนได้!')) return;
+  saveTransactions([])
+  renderSummaryCards()
+  updateTransactionsView(currentSelectedMonth)
+  updateReportsView(currentSelectedMonth)
+  alert('ล้างข้อมูลเรียบร้อยแล้ว!')
+})
+
+//load mock data
+dom.btnLoadSample.addEventListener('click', () => {
+  if (!confirm('ต้องการโหลดข้อมูลตัวอย่างใช่หรือไม่?')) return;
+  saveTransactions(getSampleTransactions())
+  renderSummaryCards()
+  updateTransactionsView(currentSelectedMonth)
+  updateReportsView(currentSelectedMonth)
+  alert('โหลดข้อมูลตัวอย่างสำเร็จ!')
 })
 
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก

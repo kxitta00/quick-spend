@@ -6,7 +6,12 @@ import { formatThaiDateTwoPosition } from "../utils/formatters";
 export function groupTransactionsByDate(transaction: Transaction[]): DateGroup[] {
 
   const groups: { [key: string]: DateGroup } = {};
-  for (const item of transaction) {
+
+  const sortedTrans = [...transaction].sort((a, b) => {
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  })
+
+  for (const item of sortedTrans) {
 
     const dateKey = new Date(item.createdAt).toDateString()
     const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
