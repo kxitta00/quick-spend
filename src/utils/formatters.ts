@@ -47,3 +47,13 @@ export function formatThaiTimeWithDate(date: Date): string {
 export function formatThaiMonthYear(date: Date): string {
   return new Intl.DateTimeFormat('th-TH', { month: 'long', year: 'numeric' }).format(date)
 }
+
+// ฟังก์ชันแปลงข้อความยกระดับความปลอดภัย
+export function escapeHtml(text: string): string {
+  if (!text) {
+    return "";
+  }
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML
+}

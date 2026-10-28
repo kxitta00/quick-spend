@@ -4,11 +4,13 @@ import { STORAGE_KEY_TRANSACTIONS } from "../constants.ts";
 
 
 //บันทึก Array ของรายการธุรกรรมลง LocalStorage
-export function saveTransactions(transactions: Transaction[]): void {
+export function saveTransactions(transactions: Transaction[]): boolean {
   try {
     localStorage.setItem(STORAGE_KEY_TRANSACTIONS, JSON.stringify(transactions))
+    return true
   } catch (error) {
-    console.error(`เซฟธุรกรรมในคีย์ "${STORAGE_KEY_TRANSACTIONS}" ไม่สำเร็จ!`, error);
+    console.error(`เซฟรายการในคีย์ "${STORAGE_KEY_TRANSACTIONS}" ไม่สำเร็จ!`, error);
+    return false
   }
 }
 

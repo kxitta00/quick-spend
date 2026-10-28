@@ -99,8 +99,11 @@ dom.form.addEventListener('submit', (e) => {
   }
 
   const oldTransactions: Transaction[] = getTransactions();
-  saveTransactions([newTransaction, ...oldTransactions]);
-
+  const isSaved = saveTransactions([newTransaction, ...oldTransactions]);
+  if (!isSaved) {
+    alert('ไม่สามารถบันทึกข้อมูลได้ (พื้นที่จัดเก็บอาจเต็ม)');
+    return
+  }
   dom.form.reset()
   selectedCategoryId = ''
   dom.categoryGrid.querySelectorAll('.category-btn').forEach((b) => b.classList.remove('active'))
@@ -246,12 +249,19 @@ dom.btnClearAll.addEventListener('click', () => {
 
 //load mock data
 dom.btnLoadSample.addEventListener('click', () => {
-  if (!confirm('ต้องการโหลดข้อมูลตัวอย่างใช่หรือไม่?')) return;
-  saveTransactions(getSampleTransactions())
-  renderSummaryCards()
-  updateTransactionsView(currentSelectedMonth)
-  updateReportsView(currentSelectedMonth)
-  alert('โหลดข้อมูลตัวอย่างสำเร็จ!')
+  const current = getTransactions();
+  if (current.length > 0) {
+    alert('ไม่สามารถโหลดข้อมูลตัวอย่างได้เนื่องจากมีข้อมูลบันทึกอยู่แล้ว');
+    return
+  }
+  if (current.length === 0) {
+    if (!confirm('ต้องการโหลดข้อมูลตัวอย่างใช่หรือไม่?')) return;
+    saveTransactions(getSampleTransactions())
+    renderSummaryCards()
+    updateTransactionsView(currentSelectedMonth)
+    updateReportsView(currentSelectedMonth)
+    alert('โหลดข้อมูลตัวอย่างสำเร็จ!')
+  }
 })
 
 //popup

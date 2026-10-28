@@ -1,7 +1,7 @@
 import { groupTransactionsByDate } from "../logic/transactionsGrouping";
 import { getTransactions } from "../storage/transactionStorage";
 import type { DateGroup, Transaction } from "../types";
-import { formatThaiTimeWithDate, formatThaiMonthYear, formatCurrency } from "../utils/formatters";
+import { formatThaiTimeWithDate, formatThaiMonthYear, formatCurrency, escapeHtml } from "../utils/formatters";
 import { dom } from "./domElements";
 import { createIcons, icons } from "lucide";
 
@@ -33,7 +33,7 @@ export function renderTransactions(transactions?: Transaction[]): void {
           <div class="transaction-item-left">
             <div class="category-icon-box"><i data-lucide="${list.category.icon}"></i></div>
             <div class="item-note-time">
-              <span class="item-title">${list.note || list.category.name}</span>
+              <span class="item-title">${escapeHtml(list.note || list.category.name)}</span>
               <time class="item-time">${formatThaiTimeWithDate(new Date(list.createdAt))}</time>
             </div>
           </div>
