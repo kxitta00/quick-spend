@@ -3,9 +3,11 @@
   /* Fonts */
   --font-family: 'Inter', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, 'SF Pro Text', Helvetica, sans-serif;
   /* Light Theme Colors (Default) */
+  --pc-bg: #E5E7EB;
   --bg-app: #F5F5F5;
   --surface-card: #FFFFFF;
   --surface-highlight: #111111;
+  --shadow-pc: 0 0 40px rgba(0, 0, 0, 0.08);
 
   --text-primary: #111827;
   --text-secondary: rgb(163, 163, 163);
@@ -31,6 +33,8 @@
 
 [data-theme="dark"],
 body.dark {
+  --pc-bg: #000000;
+  --shadow-pc: 0 0 40px rgba(0, 0, 0, 0.5);
   --bg-app: #0D0D0E;
   --surface-card: #17171A;
   --surface-highlight: #FFFFFF;
@@ -51,7 +55,10 @@ body.dark {
   padding: 0;
 }
 
-html,
+html {
+  min-height: 100vh;
+}
+
 body {
   color: var(--text-primary);
   font-family: var(--font-family);
@@ -1284,4 +1291,24 @@ main {
   color: var(--text-secondary);
   font-size: 12px;
   margin-bottom: 14px;
+}
+
+/* responsive */
+@media (min-width: 768px) {
+  html {
+    background-color: var(--pc-bg);
+  }
+
+  body {
+    max-width: 440px;
+    border-left: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-pc);
+  }
+
+  .bottom-nav {
+    max-width: 440px;
+    border-left: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
+  }
 }
