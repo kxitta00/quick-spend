@@ -272,6 +272,49 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
 
+//export file
+dom.btnImportData.addEventListener('click', () => {
+  dom.inputImportFile.click();
+
+});
+//export file
+dom.inputImportFile.addEventListener('change', () => {
+  const file = dom.inputImportFile.files?.[0];
+  if (!file) return;
+  const reader = new FileReader();
+
+  reader.onload = (event) => {
+    try {
+      const content = event.target?.result as string;
+      const parsed = JSON.parse(content);
+
+      const list = Array.isArray(parsed) ? parsed : parsed.transactions;
+
+      if (!Array.isArray(list)) {
+        alert('ไฟล์ไม่ถูกต้อง ไม่พบรายการ');
+        return;
+      }
+
+      if (!confirm(`พบข้อมูล ${list.length} รายการ ต้องการนำเข้าข้อมูลนี้ใช่หรือไม่? (ข้อมูลปัจจุบันจะถูกแทนที่)`)) {
+        return;
+      }
+
+      saveTransactions(list);
+      renderSummaryCards();
+      updateTransactionsView(currentSelectedMonth);
+      updateReportsView(currentSelectedMonth);
+      alert('นำเข้าข้อมูลสำเร็จ!');
+    } catch (err) {
+      alert('ไฟล์ JSON เสียหายหรือไม่ถูกต้อง');
+    } finally {
+      dom.inputImportFile.value = '';
+    }
+  };
+
+  reader.readAsText(file);
+})
+
+
 //สั่งวาดจอตอนเปิดเว็บครั้งแรก
 applyTheme(initialTheme as 'light' | 'dark')
 dom.settingBudgetInput.placeholder = String(getMonthlyBudget());

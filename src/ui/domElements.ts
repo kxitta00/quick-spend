@@ -77,4 +77,7 @@ export const dom = {
   stepsIos: document.getElementById('install-steps-ios') as HTMLButtonElement,
   btnCloseOnboarding: document.getElementById('btn-close-onboarding') as HTMLButtonElement,
   btnCloseInstall: document.getElementById('btn-close-install') as HTMLButtonElement,
+  //import
+  btnImportData: document.getElementById('btn-import-data') as HTMLButtonElement,
+  inputImportFile: document.getElementById('input-import-file') as HTMLInputElement,
 }

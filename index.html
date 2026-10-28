@@ -230,11 +230,15 @@
         <div class="setting-export-group">
           <div class="setting-item-info">
             <span class="setting-item-title">สำรองข้อมูล</span>
-            <span class="setting-item-desc">ดาวโหลดประวัติเป็นไฟล์ JSON</span>
+            <span class="setting-item-desc">ดาวโหลดประวัติเป็นไฟล์ JSON และนำเข้าข้อมูลเป็นไฟล์ JSON</span>
           </div>
           <button class="btn-export" id="btn-export-data" type="button"><i data-lucide="arrow-down-to-line"></i><span
               class="btn-export-title">ส่งออก</span>
           </button>
+          <button class="btn-export" id="btn-import-data" type="button"><i data-lucide="arrow-up-from-line"></i><span
+              class="btn-export-title">นำเข้าข้อมูล</span>
+          </button>
+          <input type="file" id="input-import-file" accept=".json" style="display: none;">
         </div>
         <div class="setting-divider"></div>
         <!-- Card-03.2 -->
